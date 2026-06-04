@@ -1,0 +1,2475 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>工业称重业务宏观经济与政策一页纸报告 | 2026年6月</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+<style>
+/* ===== MT.json Color Scheme ===== */
+:root {
+  --mt-green:        #56A410;
+  --mt-dark-blue:    #004696;
+  --mt-med-blue:     #3399FF;
+  --mt-light-blue:   #97CBFF;
+  --mt-light-green:  #BEF38E;
+  --mt-orange:       #E69400;
+  --mt-dark-green:   #34620A;
+  --mt-dark-navy:    #002A5A;
+  --mt-teal:         #3599B8;
+  --mt-muted-pink:   #DFBFBF;
+  --mt-cyan:         #4AC5BB;
+  --mt-slate:        #5F6B6D;
+  --mt-coral:        #FB8281;
+  --mt-gold:         #F4D25A;
+  --mt-slate-light:  #7F898A;
+  --mt-sky:          #A4DDEE;
+  --mt-salmon:       #FDAB89;
+  --mt-mauve:        #B687AC;
+  --mt-deep-teal:    #28738A;
+  --mt-warm-gray:    #A78F8F;
+  --mt-dark-cyan:    #168980;
+  --mt-charcoal:     #293537;
+  --mt-red:          #BB4A4A;
+  --mt-dark-gold:    #B59525;
+  --mt-steel:        #475052;
+  --mt-steel-blue:   #6A9FB0;
+  --mt-rust:         #BD7150;
+  --mt-plum:         #7B4F71;
+  --mt-teal-dark:    #1B4D5C;
+  --mt-mushroom:     #706060;
+  --mt-forest:       #0F5C55;
+  --mt-deep-charcoal:#1C2325;
+  --bg:              #FFFFFF;
+  --fg:              #3A6108;
+  --table-accent:    #568410;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: Verdana, 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', sans-serif;
+  background: #F0F4F0;
+  color: #1C2325;
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+}
+
+.page {
+  width: 1440px;
+  background: var(--bg);
+  border-radius: 6px;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+  overflow: hidden;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ===== SIDEBAR NAVIGATION ===== */
+.sidebar {
+  width: 195px;
+  min-width: 195px;
+  background: var(--mt-dark-navy);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 20;
+}
+.sidebar-logo {
+  padding: 16px 14px 12px;
+  border-bottom: 2px solid rgba(255,255,255,0.12);
+  font-size: 12px;
+  font-weight: 700;
+  font-family: Verdana, sans-serif;
+  color: var(--mt-light-green);
+  letter-spacing: 1px;
+  text-align: center;
+  line-height: 1.4;
+}
+.sidebar-nav {
+  flex: 1;
+  padding: 6px 0;
+}
+.sidebar-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 11px 12px;
+  cursor: pointer;
+  color: rgba(255,255,255,0.7);
+  font-size: 11.5px;
+  font-family: Verdana, 'Microsoft YaHei', sans-serif;
+  line-height: 1.35;
+  transition: all 0.2s;
+  border-left: 3px solid transparent;
+  position: relative;
+}
+.sidebar-item:hover {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  border-left-color: rgba(255,255,255,0.3);
+}
+.sidebar-item.active {
+  background: rgba(86,164,16,0.2);
+  color: #fff;
+  border-left-color: var(--mt-green);
+  font-weight: 700;
+}
+.sidebar-item .sb-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px; height: 20px;
+  min-width: 20px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.8);
+  font-size: 10px;
+  font-weight: 700;
+  margin-top: 1px;
+}
+.sidebar-item.active .sb-num {
+  background: var(--mt-green);
+  color: #fff;
+}
+.sidebar-item .sb-label {
+  flex: 1;
+}
+.sidebar-item .sb-icon {
+  font-size: 13px;
+}
+.main-area {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== HEADER ===== */
+.header {
+  background: linear-gradient(135deg, var(--mt-dark-navy) 0%, var(--mt-dark-blue) 50%, var(--mt-dark-navy) 100%);
+  color: #FFFFFF;
+  padding: 20px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 4px solid var(--mt-green);
+}
+.header-left h1 {
+  font-size: 22px;
+  font-weight: 700;
+  font-family: Verdana, 'Microsoft YaHei', sans-serif;
+  letter-spacing: 2px;
+  color: #FFFFFF;
+}
+.header-left .subtitle {
+  font-size: 11px;
+  color: var(--mt-light-blue);
+  margin-top: 4px;
+}
+.header-right {
+  text-align: right;
+}
+.header-right .tag {
+  font-size: 10px;
+  background: var(--mt-green);
+  color: #fff;
+  padding: 4px 14px;
+  border-radius: 3px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.header-right .date {
+  font-size: 11px;
+  color: var(--mt-light-blue);
+  margin-top: 4px;
+}
+
+/* ===== TAB CONTENT ===== */
+.tab-content { display: none; padding: 16px 22px; }
+.tab-content.active { display: block; }
+
+/* ===== SECTION TITLES ===== */
+.section-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--mt-dark-blue);
+  font-family: Verdana, 'Microsoft YaHei', sans-serif;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--mt-light-green);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-title .icon { font-size: 18px; }
+.subsection-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--mt-dark-green);
+  margin: 14px 0 8px;
+  padding-left: 10px;
+  border-left: 3px solid var(--mt-green);
+}
+
+/* ===== KPI CARDS ===== */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.kpi-card {
+  background: #F8FAF8;
+  border: 1px solid #E5EDE5;
+  border-radius: 6px;
+  padding: 12px 14px;
+  text-align: center;
+  transition: box-shadow 0.2s;
+}
+.kpi-card:hover { box-shadow: 0 2px 8px rgba(86,164,16,0.12); }
+.kpi-card .value {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: Verdana, sans-serif;
+  line-height: 1.2;
+}
+.kpi-card .label {
+  font-size: 10px;
+  color: var(--mt-slate);
+  margin-top: 4px;
+  line-height: 1.3;
+}
+.kpi-up    { color: var(--mt-red); }
+.kpi-down  { color: var(--mt-green); }
+.kpi-neutral { color: var(--mt-dark-blue); }
+.kpi-warn  { color: var(--mt-orange); }
+
+/* ===== CHARTS ===== */
+.chart-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.chart-row.three-col {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.chart-card {
+  background: #F8FAF8;
+  border: 1px solid #E5EDE5;
+  border-radius: 6px;
+  padding: 14px;
+}
+.chart-card.full-width { grid-column: 1 / -1; }
+.chart-card-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--mt-dark-blue);
+  margin-bottom: 8px;
+}
+.chart-wrap {
+  position: relative;
+  height: 230px;
+}
+.chart-wrap.tall { height: 300px; }
+.chart-wrap.short { height: 195px; }
+.chart-wrap canvas { width: 100% !important; height: 100% !important; }
+.chart-note {
+  font-size: 9px;
+  color: var(--mt-slate-light);
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+/* ===== ANALYSIS CARDS ===== */
+.analysis-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.analysis-card {
+  background: #F8FAF8;
+  border: 1px solid #E5EDE5;
+  border-radius: 6px;
+  padding: 12px 14px;
+  border-left: 4px solid var(--mt-green);
+}
+.analysis-card.warn { border-left-color: var(--mt-orange); }
+.analysis-card.info { border-left-color: var(--mt-med-blue); }
+.analysis-card .indicator {
+  font-weight: 700;
+  color: var(--mt-dark-navy);
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+.analysis-card .detail {
+  font-size: 10px;
+  color: var(--mt-slate);
+  line-height: 1.5;
+}
+.analysis-card .highlight {
+  color: var(--mt-dark-green);
+  font-weight: 600;
+}
+.analysis-card .warn-text {
+  color: var(--mt-orange);
+  font-weight: 600;
+}
+
+/* ===== QUOTE BLOCK ===== */
+.quote-block {
+  background: #F4F8F0;
+  border-left: 4px solid var(--mt-green);
+  padding: 10px 14px;
+  margin: 8px 0;
+  font-size: 10.5px;
+  color: #3A4A3A;
+  line-height: 1.6;
+}
+.quote-block strong { color: var(--mt-dark-green); }
+.quote-block .source {
+  font-size: 9px;
+  color: var(--mt-slate-light);
+  margin-top: 4px;
+}
+
+/* ===== POLICY TABLE ===== */
+.policy-table-wrap {
+  overflow-x: auto;
+  margin-bottom: 14px;
+}
+.policy-table {
+  width: 100%;
+  font-size: 10px;
+  border-collapse: collapse;
+}
+.policy-table th {
+  background: var(--mt-dark-navy);
+  color: #FFFFFF;
+  padding: 8px 10px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 10px;
+  white-space: nowrap;
+}
+.policy-table td {
+  padding: 7px 10px;
+  border-bottom: 1px solid #E5EDE5;
+  vertical-align: top;
+  line-height: 1.5;
+}
+.policy-table tbody tr:hover td { background: #F4F8F0; }
+.policy-table tbody tr:nth-child(even) td { background: #FAFCFA; }
+.policy-table tbody tr:nth-child(even):hover td { background: #F4F8F0; }
+
+.tag-chip {
+  display: inline-block;
+  font-size: 9px;
+  padding: 2px 8px;
+  border-radius: 3px;
+  margin: 1px 2px;
+  font-weight: 600;
+}
+.tag-red    { background: #FDECEC; color: var(--mt-red); }
+.tag-green  { background: #EDF7E6; color: var(--mt-dark-green); }
+.tag-blue   { background: #E5F0FF; color: var(--mt-dark-blue); }
+.tag-orange { background: #FFF4E5; color: var(--mt-orange); }
+.tag-teal   { background: #E5F7F5; color: var(--mt-dark-cyan); }
+
+/* ===== COMPANY NEWS CARDS ===== */
+.company-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.company-card {
+  background: #FAFCFA;
+  border: 1px solid #E5EDE5;
+  border-radius: 8px;
+  padding: 14px 16px;
+  transition: box-shadow 0.2s;
+}
+.company-card:hover { box-shadow: 0 3px 12px rgba(0,0,0,0.08); }
+.company-card .co-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+.company-card .co-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--mt-dark-navy);
+}
+.company-card .co-date {
+  font-size: 9px;
+  color: var(--mt-slate-light);
+  white-space: nowrap;
+}
+.company-card .co-tagline {
+  font-size: 10px;
+  color: var(--mt-dark-green);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.company-card .co-highlights {
+  font-size: 10px;
+  color: var(--mt-slate);
+  line-height: 1.6;
+  list-style: none;
+  padding: 0;
+}
+.company-card .co-highlights li {
+  padding: 2px 0;
+  padding-left: 12px;
+  position: relative;
+}
+.company-card .co-highlights li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--mt-green);
+  font-size: 9px;
+}
+.company-card .co-source {
+  font-size: 8.5px;
+  color: var(--mt-slate-light);
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed #E5EDE5;
+}
+
+/* ===== INDUSTRY CARDS ===== */
+.industry-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.industry-card {
+  background: #F8FAF8;
+  border: 1px solid #E5EDE5;
+  border-radius: 6px;
+  padding: 12px 14px;
+}
+.industry-card .ind-name {
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--mt-dark-blue);
+  margin-bottom: 6px;
+}
+.industry-card .ind-data {
+  font-size: 10px;
+  color: var(--mt-slate);
+  line-height: 1.6;
+}
+.industry-card .ind-price {
+  font-size: 16px;
+  font-weight: 700;
+  font-family: Verdana, sans-serif;
+}
+.industry-card .ind-change { font-size: 10px; margin-top: 2px; }
+
+/* ===== PORTER FIVE FORCES ===== */
+.forces-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.force-card {
+  background: #F8FAF8;
+  border: 1px solid #E5EDE5;
+  border-radius: 8px;
+  padding: 12px 10px;
+  text-align: center;
+  transition: box-shadow 0.2s;
+}
+.force-card:hover { box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+.force-card .force-icon {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+.force-card .force-name {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--mt-dark-navy);
+  margin-bottom: 4px;
+}
+.force-card .force-level {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.force-card .force-detail {
+  font-size: 9px;
+  color: var(--mt-slate);
+  line-height: 1.4;
+}
+.force-high { color: var(--mt-red); }
+.force-med  { color: var(--mt-orange); }
+.force-low  { color: var(--mt-green); }
+
+/* ===== PRICE COMPARISON TABLE ===== */
+.price-compare-table {
+  width: 100%;
+  font-size: 10px;
+  border-collapse: collapse;
+  margin-bottom: 14px;
+}
+.price-compare-table th {
+  background: var(--mt-dark-navy);
+  color: #fff;
+  padding: 7px 8px;
+  font-weight: 600;
+  font-size: 9px;
+}
+.price-compare-table td {
+  padding: 6px 8px;
+  border-bottom: 1px solid #E5EDE5;
+  vertical-align: middle;
+  line-height: 1.4;
+}
+.price-compare-table tbody tr:hover td { background: #F4F8F0; }
+.price-compare-table tbody tr:nth-child(even) td { background: #FAFCFA; }
+.price-compare-table tbody tr:nth-child(even):hover td { background: #F4F8F0; }
+
+.competitive-map {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.comp-map-card {
+  background: #F8FAF8;
+  border: 1px solid #E5EDE5;
+  border-radius: 8px;
+  padding: 14px;
+}
+.comp-map-card .map-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--mt-dark-blue);
+  margin-bottom: 8px;
+}
+
+/* ===== OPPORTUNITY CARDS ===== */
+.opp-card {
+  background: linear-gradient(135deg, #F4F8F0, #FAFCFA);
+  border: 2px solid var(--mt-light-green);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+}
+.opp-card .opp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.opp-card .opp-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--mt-dark-green);
+}
+.opp-card .opp-amount {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--mt-orange);
+  font-family: Verdana, sans-serif;
+}
+.opp-card .opp-detail {
+  font-size: 10px;
+  color: var(--mt-slate);
+  line-height: 1.6;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--mt-dark-navy);
+  color: #8BA0B8;
+  padding: 14px 28px;
+  font-size: 9px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.footer .keywords {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1200px) {
+  .page { width: 100%; }
+  .chart-row { grid-template-columns: 1fr; }
+  .chart-row.three-col { grid-template-columns: 1fr 1fr; }
+  .industry-grid { grid-template-columns: repeat(2, 1fr); }
+  .analysis-grid { grid-template-columns: 1fr; }
+  .sidebar { width: 160px; min-width: 160px; }
+  .sidebar-item { font-size: 10px; padding: 8px 10px; }
+  .company-grid { grid-template-columns: 1fr; }
+  .five-forces-grid { grid-template-columns: 1fr; }
+}
+
+@media print {
+  body { background: #fff; padding: 0; }
+  .page { box-shadow: none; width: 100%; }
+  .tab-content { display: block !important; page-break-inside: avoid; }
+  .sidebar { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+<!-- ========== SIDEBAR NAVIGATION ========== -->
+<div class="sidebar">
+  <div class="sidebar-logo">📊 工业称重<br>一页纸报告</div>
+  <div class="sidebar-nav">
+    <div class="sidebar-item active" onclick="switchTab('tab-macro')">
+      <span class="sb-num">1</span>
+      <span class="sb-label"><span class="sb-icon">📊</span> 三驾马车<br><small style="opacity:0.7">消费·投资·进出口</small></span>
+    </div>
+    <div class="sidebar-item" onclick="switchTab('tab-materials')">
+      <span class="sb-num">2</span>
+      <span class="sb-label"><span class="sb-icon">🏭</span> 原材料与价格<br><small style="opacity:0.7">分行业透视</small></span>
+    </div>
+    <div class="sidebar-item" onclick="switchTab('tab-policy')">
+      <span class="sb-num">3</span>
+      <span class="sb-label"><span class="sb-icon">🗺️</span> 省市政策机遇<br><small style="opacity:0.7">政策·数据·资金</small></span>
+    </div>
+    <div class="sidebar-item" onclick="switchTab('tab-compete')">
+      <span class="sb-num">4</span>
+      <span class="sb-label"><span class="sb-icon">🏢</span> 头部竞争格局<br><small style="opacity:0.7">五力·价格·企业</small></span>
+    </div>
+    <div class="sidebar-item" onclick="switchTab('tab-3c')">
+      <span class="sb-num">5</span>
+      <span class="sb-label"><span class="sb-icon">📱</span> 3C行业机会<br><small style="opacity:0.7">场景·STP策略</small></span>
+    </div>
+    <div class="sidebar-item" onclick="switchTab('tab-strategy')">
+      <span class="sb-num">6</span>
+      <span class="sb-label"><span class="sb-icon">🎯</span> 战略建议<br><small style="opacity:0.7">领先路径</small></span>
+    </div>
+  </div>
+</div>
+
+<!-- ========== MAIN CONTENT AREA ========== -->
+<div class="main-area">
+
+<!-- ========== HEADER ========== -->
+<div class="header">
+  <div class="header-left">
+    <h1>工业称重业务 · 宏观经济与政策一页纸</h1>
+    <div class="subtitle">数据来源：国家统计局 · 工信部 · 各省政府官网 · 新华社 · 人民日报 ｜ 分析周期：2026年4月最新数据</div>
+  </div>
+  <div class="header-right">
+    <div class="tag">CONFIDENTIAL</div>
+    <div class="date">报告日期：2026年6月4日</div>
+  </div>
+</div>
+
+<!-- ================================================================ -->
+<!-- TAB 1: 三驾马车 —— 社零消费 · 投资 · 进出口 -->
+<!-- ================================================================ -->
+<div class="tab-content active" id="tab-macro">
+
+  <!-- KPI Quick Glance -->
+  <div class="section-title"><span class="icon">📊</span>核心宏观指标速览（2026年4月）</div>
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="value kpi-neutral">50.3</div>
+      <div class="label">制造业PMI<br>（连续2月站上荣枯线）</div>
+    </div>
+    <div class="kpi-card">
+      <div class="value kpi-neutral">+4.1%</div>
+      <div class="label">规上工业增加值<br>（4月当月同比）</div>
+    </div>
+    <div class="kpi-card">
+      <div class="value kpi-up">+0.2%</div>
+      <div class="label">社零消费同比<br>（消费复苏仍偏弱）</div>
+    </div>
+    <div class="kpi-card">
+      <div class="value kpi-up">+5.5%</div>
+      <div class="label">固定资产投资累计<br>（1-4月）</div>
+    </div>
+    <div class="kpi-card">
+      <div class="value kpi-up">+18.7%</div>
+      <div class="label">出口同比增速<br>（4月当月）</div>
+    </div>
+    <div class="kpi-card">
+      <div class="value kpi-up">+8.3%</div>
+      <div class="label">装备制造业增加值<br>（4月当月）</div>
+    </div>
+  </div>
+
+  <!-- 消费 Section -->
+  <div class="subsection-title">🛒 社零消费 —— 内需基本盘</div>
+  <div class="chart-row">
+    <div class="chart-card">
+      <div class="chart-card-title">社会消费品零售总额月度同比增速（近12个月，%）</div>
+      <div class="chart-wrap short">
+        <canvas id="retailChart"></canvas>
+      </div>
+      <div class="chart-note">4月社零总额37,246亿元，同比+0.2%，累计+1.9%。消费复苏动能偏弱，餐饮+3.8%好于商品零售-0.5%。<span class="highlight" style="color:var(--mt-dark-green);">→ 消费品称重（食品包装、定量称重）需求稳定</span></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-card-title">PMI 走势（近12个月）—— 经济景气晴雨表</div>
+      <div class="chart-wrap short">
+        <canvas id="pmiChart"></canvas>
+      </div>
+      <div class="chart-note">生产指数+1.5pct扩张，新订单+0.6pct温和改善。出厂价格指数+5.1pct → 成本传导压力加大，<span class="highlight" style="color:var(--mt-dark-green);">称重设备定价窗口期来临</span></div>
+    </div>
+  </div>
+
+  <!-- 投资 Section -->
+  <div class="subsection-title">🏗️ 固定资产投资 —— 产能扩张信号</div>
+  <div class="chart-row three-col">
+    <div class="chart-card">
+      <div class="chart-card-title">固定资产投资分项累计同比（%）</div>
+      <div class="chart-wrap short">
+        <canvas id="faiChart"></canvas>
+      </div>
+      <div class="chart-note">设备工器具购置<span style="color:var(--mt-red);font-weight:700;">+11.5%</span>，制造业投资+4.4%，基建投资较高景气。<span class="highlight" style="color:var(--mt-dark-green);">设备更新周期 → 称重设备需求增长</span></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-card-title">工业用电量同比增速（%）</div>
+      <div class="chart-wrap short">
+        <canvas id="elecChart"></canvas>
+      </div>
+      <div class="chart-note">4月工业用电+5.5%，产能利用率回升。工业中长期贷款+6.8% → <span class="highlight" style="color:var(--mt-dark-green);">企业资本开支意愿增强</span></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-card-title">房地产投资累计同比（%）</div>
+      <div class="chart-wrap short">
+        <canvas id="reChart"></canvas>
+      </div>
+      <div class="chart-note">房地产投资-13.7%，持续下行。<span class="warn-text" style="color:var(--mt-orange);">建筑用称重需求承压，需调整客户结构</span></div>
+    </div>
+  </div>
+
+  <!-- 进出口 Section -->
+  <div class="subsection-title">🚢 货物进出口 —— 外需驱动力</div>
+  <div class="chart-row">
+    <div class="chart-card">
+      <div class="chart-card-title">货物进出口月度同比增速（近12个月，%）</div>
+      <div class="chart-wrap short">
+        <canvas id="tradeChart"></canvas>
+      </div>
+      <div class="chart-note">4月出口+18.7%，延续高增速。出口总值63,406亿元（当月）。<span class="highlight" style="color:var(--mt-dark-green);">→ 港口物流地磅、出口产品检重需求旺盛</span></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-card-title">物流货运周转量同比增速（%）</div>
+      <div class="chart-wrap short">
+        <canvas id="logisticsChart"></canvas>
+      </div>
+      <div class="chart-note">4月货运周转量+4.3%，累计+6.2%。快递物流高景气 → <span class="highlight" style="color:var(--mt-dark-green);">DWS系统、动态称重需求增长</span></div>
+    </div>
+  </div>
+
+  <!-- 三驾马车综合影响分析 -->
+  <div class="subsection-title">🎯 三驾马车 → 工业称重业务影响解读</div>
+  <div class="analysis-grid">
+    <div class="analysis-card info">
+      <div class="indicator">📦 社零消费 +0.2%（偏弱）</div>
+      <div class="detail">内需温和复苏，食品饮料、快递包装称重需求稳定。但需关注<span class="warn-text">消费降级趋势对高端称重设备的影响</span>。定量包装、食品检重等刚需不受影响。</div>
+    </div>
+    <div class="analysis-card">
+      <div class="indicator">🏗️ 设备工器具购置 +11.5%</div>
+      <div class="detail">企业设备更新周期启动，<span class="highlight">称重设备作为工业基础装备直接受益</span>。智能制造升级推动传统机械秤向智能称重系统替换，市场规模持续扩大。</div>
+    </div>
+    <div class="analysis-card">
+      <div class="indicator">🚢 出口 +18.7%</div>
+      <div class="detail">贸易活跃→<span class="highlight">港口地磅、物流仓储称重系统需求强劲</span>。出口产品检重合规要求趋严，高精度检重秤市场扩大。跨境电商驱动小型称重设备需求。</div>
+    </div>
+    <div class="analysis-card warn">
+      <div class="indicator">⚠ 房地产投资 -13.7%</div>
+      <div class="detail">建筑用称重（搅拌站、建材）需求持续萎缩，<span class="warn-text">需主动调整客户结构</span>，从建筑转向制造业、物流、新能源领域。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================ -->
+<!-- TAB 2: 原材料与价格 —— 分行业透视 -->
+<!-- ================================================================ -->
+<div class="tab-content" id="tab-materials">
+
+  <!-- Price KPIs -->
+  <div class="section-title"><span class="icon">🏭</span>工业原材料与价格核心指标</div>
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="value kpi-up">+2.8%</div>
+      <div class="label">PPI 同比（4月）<br>45个月新高</div>
+    </div>
+    <div class="kpi-card">
+      <div class="value kpi-up">3,413</div>
+      <div class="label">钢材综合价格<br>（元/吨，5月中旬）</div>
+    </div>
+    <div class="kpi-card">
+      <div class="value kpi-up">+38.9%</div>
+      <div class="label">有色金属采选 PPI<br>（同比涨幅最大）</div>
+    </div>
+    <div class="kpi-card">
+      <div class="value kpi-up">+28.6%</div>
+      <div class="label">石油/天然气开采 PPI<br>（国际输入性）</div>
+    </div>
+    <div class="kpi-card">
+      <div class="value kpi-up">+22.5%</div>
+      <div class="label">黑色金属冶炼 PPI<br>（钢材成本驱动）</div>
+    </div>
+    <div class="kpi-card">
+      <div class="value kpi-up">+5.5%</div>
+      <div class="label">工业用电同比<br>（产能利用率指标）</div>
+    </div>
+  </div>
+
+  <!-- PPI by Industry Chart -->
+  <div class="subsection-title">📈 PPI 分行业 —— 工业称重相关上游涨跌全景（2026年4月同比，%）</div>
+  <div class="chart-row">
+    <div class="chart-card full-width">
+      <div class="chart-wrap">
+        <canvas id="ppiSectorChart"></canvas>
+      </div>
+      <div class="chart-note">有色金属(+38.9%)、石油(+28.6%)、黑色金属冶炼(+22.5%)领涨 → 原材料成本上升 → 企业需精准计量控成本 → <span class="highlight" style="color:var(--mt-dark-green);">称重设备从"辅助工具"升级为"成本控制节点"</span></div>
+    </div>
+  </div>
+
+  <!-- Steel Price Chart with YoY -->
+  <div class="subsection-title">📉 钢材价格走势 —— 绝对价格与同比变化（2025年4月-5月，元/吨）</div>
+  <div class="chart-row">
+    <div class="chart-card full-width">
+      <div class="chart-wrap">
+        <canvas id="steelChart"></canvas>
+      </div>
+      <div class="chart-note">钢价从3,210→3,413元/吨波动上行，同比降幅持续收窄（从-16.4%→-13.2%）→ 价格中枢上移趋势确立。<span class="warn-text" style="color:var(--mt-orange);">称重设备制造成本承压，需关注供应链管理</span>；同时钢铁贸易活跃→港口物流地磅需求上升。</div>
+    </div>
+  </div>
+
+  <!-- Industry-specific Raw Material Cards -->
+  <div class="subsection-title">🔩 分行业原材料价格与称重需求关联</div>
+  <div class="industry-grid">
+    <div class="industry-card">
+      <div class="ind-name">🔩 钢铁行业</div>
+      <div class="ind-data">
+        <span class="ind-price" style="color:var(--mt-red);">3,413 元/吨</span>
+        <span class="ind-change" style="color:var(--mt-red);">▲ 钢价中枢上移</span><br>
+        黑色冶炼PPI +22.5%<br>
+        钢材出口+4%<br>
+        <span style="color:var(--mt-dark-green);">→ 港口地磅 · 钢厂称重系统</span>
+      </div>
+    </div>
+    <div class="industry-card">
+      <div class="ind-name">⛽ 石油化工</div>
+      <div class="ind-data">
+        <span class="ind-price" style="color:var(--mt-red);">PPI +28.6%</span>
+        <span class="ind-change" style="color:var(--mt-red);">▲ 国际输入性上涨</span><br>
+        化学原料PPI +14.2%<br>
+        橡胶塑料PPI +8.9%<br>
+        <span style="color:var(--mt-dark-green);">→ 防爆称重 · 化工配料系统</span>
+      </div>
+    </div>
+    <div class="industry-card">
+      <div class="ind-name">🪨 有色金属</div>
+      <div class="ind-data">
+        <span class="ind-price" style="color:var(--mt-red);">PPI +38.9%</span>
+        <span class="ind-change" style="color:var(--mt-red);">▲ 采选价格暴涨</span><br>
+        有色冶炼PPI +22.5%<br>
+        算力需求驱动电子/有色<br>
+        <span style="color:var(--mt-dark-green);">→ 矿用称重 · 精矿计量</span>
+      </div>
+    </div>
+    <div class="industry-card">
+      <div class="ind-name">⚡ 新能源材料</div>
+      <div class="ind-data">
+        <span class="ind-price" style="color:var(--mt-dark-blue);">锂电产量 +31%</span>
+        <span class="ind-change">光伏产量 +3.8%</span><br>
+        高技术制造业 +12.8%<br>
+        机器人 +15.1%<br>
+        <span style="color:var(--mt-dark-green);">→ 精密称重 · 防爆配料</span>
+      </div>
+    </div>
+    <div class="industry-card">
+      <div class="ind-name">🚛 物流运输</div>
+      <div class="ind-data">
+        <span class="ind-price" style="color:var(--mt-dark-blue);">货运周转 +4.3%</span>
+        <span class="ind-change">累计 +6.2%</span><br>
+        快递物流高景气<br>
+        物流成本下降政策<br>
+        <span style="color:var(--mt-dark-green);">→ DWS系统 · 动态称重</span>
+      </div>
+    </div>
+    <div class="industry-card">
+      <div class="ind-name">🏗️ 建材/非金属</div>
+      <div class="ind-data">
+        <span class="ind-price" style="color:var(--mt-green);">PPI -5.5%</span>
+        <span class="ind-change" style="color:var(--mt-green);">▼ 水泥价格低迷</span><br>
+        房地产投资 -13.7%<br>
+        基建投资有支撑<br>
+        <span style="color:var(--mt-orange);">→ 搅拌站称重需求承压</span>
+      </div>
+    </div>
+    <div class="industry-card">
+      <div class="ind-name">⚙️ 通用/专用设备</div>
+      <div class="ind-data">
+        <span class="ind-price" style="color:var(--mt-green);">PPI -1.0%/-0.9%</span>
+        <span class="ind-change">设备价格低位运行</span><br>
+        装备制造业 +8.3%<br>
+        设备更新政策利好<br>
+        <span style="color:var(--mt-dark-green);">→ 称重设备需求放量</span>
+      </div>
+    </div>
+    <div class="industry-card">
+      <div class="ind-name">🥫 食品/消费品</div>
+      <div class="ind-data">
+        <span class="ind-price" style="color:var(--mt-dark-blue);">CPI +2.1%</span>
+        <span class="ind-change">食品CPI +1.0%</span><br>
+        餐饮收入 +3.8%<br>
+        社零消费 +0.2%<br>
+        <span style="color:var(--mt-dark-green);">→ 定量包装 · 食品检重</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Demand Heatmap -->
+  <div class="subsection-title">🔥 称重设备下游需求景气度地图</div>
+  <div class="chart-row">
+    <div class="chart-card full-width">
+      <div class="chart-wrap short">
+        <canvas id="demandChart"></canvas>
+      </div>
+      <div class="chart-note">
+        <span style="color:var(--mt-red);">● 高景气</span>：新能源/锂电称重 | 物流DWS系统 | 智能检重 | 港口地磅 &nbsp;&nbsp;
+        <span style="color:var(--mt-orange);">● 中景气</span>：钢铁/化工称重 | 工程机械配套 | 食品包装称重 &nbsp;&nbsp;
+        <span style="color:var(--mt-green);">● 低景气</span>：建筑搅拌站称重 | 传统台秤/案秤
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPANY CARDS MOVED TO TAB 4 -->
+
+  <!-- Impact Summary -->
+  <div class="subsection-title">🎯 价格波动 → 称重业务影响总结</div>
+  <div class="analysis-grid">
+    <div class="analysis-card warn">
+      <div class="indicator">⚠ 原材料成本上涨压力</div>
+      <div class="detail">钢材(+22.5%)、有色金属(+38.9%)等原料价格持续上涨 → <span class="warn-text">称重设备制造成本承压</span>，需优化供应链管理和采购策略。但同时也是提升产品定价权的窗口。</div>
+    </div>
+    <div class="analysis-card">
+      <div class="indicator">✅ 成本控制需求驱动称重升级</div>
+      <div class="detail">PPI上涨→下游企业成本压力增大 → <span class="highlight">高精度称重计量成为降本增效刚需</span>。智能称重系统可帮助企业精准控制原料投入、减少浪费，ROI显著提升。</div>
+    </div>
+    <div class="analysis-card info">
+      <div class="indicator">📊 行业分化明显，需精准聚焦</div>
+      <div class="detail">有色/石化/新能源高景气 vs 建材/房地产低景气 → <span class="highlight">称重业务应聚焦高景气行业</span>：新能源材料称重、化工防爆称重、物流动态称重为三大增长极。</div>
+    </div>
+    <div class="analysis-card">
+      <div class="indicator">🔄 设备更新周期叠加价格窗口</div>
+      <div class="detail">设备工器具购置+11.5%，叠加PPI上行 → 企业设备投资意愿增强，<span class="highlight">称重设备更新替换需求进入上升通道</span>。老旧机械秤向智能称重系统替换加速。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================ -->
+<!-- TAB 3: 省市政策机遇 —— 政策 · 数据 · 资金 -->
+<!-- ================================================================ -->
+<div class="tab-content" id="tab-policy">
+
+  <!-- National Policy Summary -->
+  <div class="section-title"><span class="icon">🏛️</span>国家层面核心政策 —— 与工业称重直接相关</div>
+  <div class="quote-block">
+    <strong>1. 工信部《关于制造业计量创新发展的意见》</strong> <span class="tag-chip tag-red">核心文件</span><br>
+    2025年6月发布，到2027年突破100+项计量校准技术，研制100+台套计量器具，培育50+家仪器仪表优质企业。<br>
+    <span style="color:var(--mt-dark-green);">→ 称重设备三大技术方向：</span>量子计量、AI自适应校准、动态量准确测量
+  </div>
+  <div class="quote-block">
+    <strong>2. 工信部2026年工业和信息化质量工作通知</strong> <span class="tag-chip tag-red">2026.4.7</span><br>
+    厅科函〔2026〕147号：加快突破检测装备，推动<span style="color:var(--mt-dark-green);">计量校准仪器仪表产业</span>发展；建设高水平智能工厂；编制"人工智能+质量"应用全景图。<br>
+    <span style="color:var(--mt-dark-green);">→ 称重设备重点：</span>在线动态校准、AI+称重质检、智能传感器
+  </div>
+  <div class="quote-block">
+    <strong>3. 市场监管总局《2026年全国计量工作要点》</strong> <span class="tag-chip tag-red">2026.2</span><br>
+    强化强制检定管理，推进<span style="color:var(--mt-dark-green);">产业计量测试中心</span>建设，推动计量数字化转型。强制检定要求趋严→合规称重设备替代非标产品，利好正规厂商。
+  </div>
+  <div class="quote-block">
+    <strong>4. "十五五"规划 —— 仪器仪表产业全链条攻关</strong> <span class="tag-chip tag-blue">长期利好</span><br>
+    多地"十五五"规划明确<span style="color:var(--mt-dark-green);">全链条推动仪器仪表核心技术攻关</span>，称重传感器、测力传感器列为重点突破方向。培育专精特新"小巨人"企业。
+  </div>
+
+  <!-- Provincial Policy & Opportunity Table -->
+  <div class="subsection-title">🗺️ 各省/地区工业称重相关政策、资金补贴与机遇</div>
+  <div class="policy-table-wrap">
+    <table class="policy-table">
+      <thead>
+        <tr>
+          <th style="width:50px;">地区</th>
+          <th>核心政策 / 文件</th>
+          <th style="width:180px;">与称重业务关联</th>
+          <th style="width:130px;">资金/补贴亮点</th>
+          <th style="width:55px;">优先级</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>广东</strong></td>
+          <td>《加快应用场景创新工作方案》(2026.3)：智慧仓储、无人装卸、智慧物流、低空经济；《广东省制造业高质量发展"十五五"规划》</td>
+          <td>物流地磅、仓储DWS系统、无人值守称重、低空物流载荷称重</td>
+          <td>省级先进制造业专项资金：单个项目最高<span style="color:var(--mt-orange);font-weight:700;">5,000万元</span>；技改奖补最高30%</td>
+          <td><span class="tag-chip tag-red">★★★★★</span></td>
+        </tr>
+        <tr>
+          <td><strong>山东</strong></td>
+          <td>百个质量技术攻关项目(2026)：聚焦19条标志性产业链，碳计量、在线测试、智能传感器校准；《山东省仪器仪表产业发展行动计划》</td>
+          <td>碳计量称重、工业过程在线称重、智能传感器与称重模块</td>
+          <td>质量技术攻关专项：<span style="color:var(--mt-orange);font-weight:700;">3,000万元/项目</span>；首台套保险补偿</td>
+          <td><span class="tag-chip tag-red">★★★★★</span></td>
+        </tr>
+        <tr>
+          <td><strong>福建</strong></td>
+          <td>计量服务"十大举措"：AI+计量包装、仪器仪表产业升级、碳计量+服务；《福建省数字经济创新发展条例》</td>
+          <td>定量包装称重智能化、AI自适应称重算法、仪器仪表产业升级</td>
+          <td>数字经济专项基金：<span style="color:var(--mt-orange);font-weight:700;">2亿元/年</span>；仪器仪表升级补贴最高20%</td>
+          <td><span class="tag-chip tag-orange">★★★★</span></td>
+        </tr>
+        <tr>
+          <td><strong>浙江</strong></td>
+          <td>产业计量测试中心管理新规(2026)：加强精密测量能力、推动计量数字化转型；《浙江省"415X"先进制造业集群建设行动方案》</td>
+          <td>精密称重传感器、数字计量、工业互联网+称重数据平台</td>
+          <td>先进制造业集群专项：<span style="color:var(--mt-orange);font-weight:700;">单个集群最高1亿元</span></td>
+          <td><span class="tag-chip tag-orange">★★★★</span></td>
+        </tr>
+        <tr>
+          <td><strong>江苏</strong></td>
+          <td>"十五五"制造业高质量发展规划：仪器仪表核心技术攻关、智能工厂梯度培育；《江苏省智改数转网联三年行动计划》</td>
+          <td>高端称重模组国产替代、智能工厂配套称重系统集成</td>
+          <td>智改数转专项：<span style="color:var(--mt-orange);font-weight:700;">设备投资额15%-30%奖补</span>；首购首用风险补偿</td>
+          <td><span class="tag-chip tag-orange">★★★★</span></td>
+        </tr>
+        <tr>
+          <td><strong>京津冀</strong></td>
+          <td>京津冀产业计量协同：钢铁/化工行业计量升级、环保督查推动设备更新；《京津冀协同推进产业计量测试体系建设方案》</td>
+          <td>钢铁厂称重系统升级、防爆称重、环保称重计量</td>
+          <td>京津冀协同发展基金：<span style="color:var(--mt-orange);font-weight:700;">总规模1,000亿元</span></td>
+          <td><span class="tag-chip tag-blue">★★★</span></td>
+        </tr>
+        <tr>
+          <td><strong>四川/重庆</strong></td>
+          <td>成渝双城经济圈：汽车/电子产业链扩张、锂电产业基地建设；《成渝地区双城经济圈先进制造业协同发展规划》</td>
+          <td>汽车产线检重、锂电材料称重配料、电子元器件精密称重</td>
+          <td>川渝产业协同基金：<span style="color:var(--mt-orange);font-weight:700;">首期500亿元</span>；锂电产业专项补贴</td>
+          <td><span class="tag-chip tag-blue">★★★</span></td>
+        </tr>
+        <tr>
+          <td><strong>湖北/湖南</strong></td>
+          <td>中部崛起：工程机械产业集群、新能源汽车产业基地；《湖北省汽车产业转型发展实施方案》</td>
+          <td>工程机械配套称重、动力电池称重、产线自动化检重</td>
+          <td>中部崛起专项：<span style="color:var(--mt-orange);font-weight:700;">技改贷款贴息最高500万元/年</span></td>
+          <td><span class="tag-chip tag-blue">★★★</span></td>
+        </tr>
+        <tr>
+          <td><strong>辽宁/吉林</strong></td>
+          <td>东北振兴：石化/钢铁/粮食加工产业计量升级需求；《东北地区全面振兴"十五五"实施方案》</td>
+          <td>石化防爆称重、粮食仓储称重、钢铁物流地磅</td>
+          <td>东北振兴专项转移支付：<span style="color:var(--mt-orange);font-weight:700;">年度超千亿元</span></td>
+          <td><span class="tag-chip tag-blue">★★★</span></td>
+        </tr>
+        <tr>
+          <td><strong>新疆/内蒙古</strong></td>
+          <td>西部大开发：煤炭/矿产/新能源基地建设、口岸物流扩容；《新疆维吾尔自治区矿产资源总体规划》</td>
+          <td>矿用称重、煤炭物流地磅、口岸通关称重系统</td>
+          <td>西部大开发税收优惠：<span style="color:var(--mt-orange);font-weight:700;">企业所得税减按15%</span>；矿产资源补偿费减免</td>
+          <td><span class="tag-chip tag-blue">★★★</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Opportunity Sizing -->
+  <div class="subsection-title">💰 重点政策资金机遇 —— 与称重业务直接相关</div>
+  <div class="opp-card">
+    <div class="opp-header">
+      <div class="opp-title">🔬 制造业计量创新发展专项</div>
+      <div class="opp-amount">100+ 项计量技术突破</div>
+    </div>
+    <div class="opp-detail">
+      <strong>政策来源：</strong>工信部《关于制造业计量创新发展的意见》(2025.6)<br>
+      <strong>核心内容：</strong>到2027年，突破100+项计量校准技术，研制100+台套计量器具，培育50+家仪器仪表优质企业。量子计量、AI自适应校准、动态量准确测量为三大技术方向。<br>
+      <strong>称重设备机会：</strong><span class="highlight" style="color:var(--mt-dark-green);">量子称重、AI校准称重系统、动态称重传感器</span>为技术攻关重点，符合条件企业可申报国家级专项课题，单个课题经费可达500-2,000万元。
+    </div>
+  </div>
+  <div class="opp-card">
+    <div class="opp-header">
+      <div class="opp-title">🏭 大规模设备更新与消费品以旧换新</div>
+      <div class="opp-amount">年度规模超 5万亿元</div>
+    </div>
+    <div class="opp-detail">
+      <strong>政策来源：</strong>国务院《推动大规模设备更新和消费品以旧换新行动方案》<br>
+      <strong>核心内容：</strong>到2027年，工业、农业、建筑、交通、教育、文旅、医疗等领域设备投资规模较2023年增长25%以上。重点推动<span style="color:var(--mt-dark-green);">工业母机、仪器仪表、检测设备</span>更新。<br>
+      <strong>称重设备机会：</strong>工业称重设备属于仪器仪表大类，<span class="highlight" style="color:var(--mt-dark-green);">直接享受设备更新补贴政策</span>。各地配套资金中，企业采购智能称重设备可获10%-30%的购置补贴或技改贷款贴息。
+    </div>
+  </div>
+  <div class="opp-card">
+    <div class="opp-header">
+      <div class="opp-title">🤖 AI+制造业 / 智能工厂建设</div>
+      <div class="opp-amount">智能制造试点示范 500+ 家</div>
+    </div>
+    <div class="opp-detail">
+      <strong>政策来源：</strong>工信部"人工智能+质量"应用全景图 + 各省智能工厂梯度培育计划<br>
+      <strong>核心内容：</strong>编制"人工智能+质量"应用全景图，培育高水平智能工厂。AI视觉+称重融合、在线动态校准为明确方向。山东、广东、江苏等省份均有智能制造专项补贴。<br>
+      <strong>称重设备机会：</strong><span class="highlight" style="color:var(--mt-dark-green);">AI视觉+称重融合系统</span>为下一增长极——智能检重、在线称重分选、无人值守称重一体机。
+    </div>
+  </div>
+  <div class="opp-card">
+    <div class="opp-header">
+      <div class="opp-title">🌱 碳计量 / 双碳目标</div>
+      <div class="opp-amount">碳计量试点覆盖 200+ 城市</div>
+    </div>
+    <div class="opp-detail">
+      <strong>政策来源：</strong>市场监管总局碳计量体系建设方案 + 各省碳达峰实施方案<br>
+      <strong>核心内容：</strong>建立碳计量标准装置，推动碳计量数据在线采集与实时监测。钢铁、石化、化工、建材等高碳行业为碳计量重点领域。<br>
+      <strong>称重设备机会：</strong><span class="highlight" style="color:var(--mt-dark-green);">碳计量称重系统</span>为全新品类——将物料称重数据与碳排放核算打通，山东、福建已明确碳计量+称重方向。
+    </div>
+  </div>
+
+</div>
+
+<!-- ================================================================ -->
+<!-- TAB 4: 头部竞争格局 —— 五力分析 · 价格对标 · 企业追踪 -->
+<!-- ================================================================ -->
+<div class="tab-content" id="tab-compete">
+
+  <!-- Porter's Five Forces -->
+  <div class="section-title"><span class="icon">🧭</span>Porter 五力分析 —— 工业称重行业竞争格局</div>
+  <div class="forces-grid">
+    <div class="force-card">
+      <div class="force-icon">⚔️</div>
+      <div class="force-name">现有竞争者<br>竞争强度</div>
+      <div class="force-level force-high">高 HIGH</div>
+      <div class="force-detail">高端MT/茵泰科寡头垄断；中端柯力/赛摩/中航激烈争夺；低端数百家价格战。国产品牌技术追赶加速，坤维等新势力跨界入局。</div>
+    </div>
+    <div class="force-card">
+      <div class="force-icon">🚪</div>
+      <div class="force-name">潜在进入者<br>威胁</div>
+      <div class="force-level force-med">中 MEDIUM</div>
+      <div class="force-detail">技术壁垒：OIML/CPA认证周期长（1-2年）、高精度传感器研发门槛高；但坤维（航天跨界）证明技术溢出可突破壁垒。资本密集度中等。</div>
+    </div>
+    <div class="force-card">
+      <div class="force-icon">🔄</div>
+      <div class="force-name">替代品<br>威胁</div>
+      <div class="force-level force-low">低 LOW</div>
+      <div class="force-detail">工业称重是基础计量工具，难以被完全替代。但AI视觉（体积估算→替代部分称重场景）和流程模拟软件在特定场景构成替代威胁。</div>
+    </div>
+    <div class="force-card">
+      <div class="force-icon">🏗️</div>
+      <div class="force-name">供应商<br>议价能力</div>
+      <div class="force-level force-med">中 MEDIUM</div>
+      <div class="force-detail">钢材(+22.5%)、有色金属(+38.9%)价格上行→传感器/秤体原材料成本承压。高端芯片/应变计仍依赖进口。国产替代正在推进但尚需时间。</div>
+    </div>
+    <div class="force-card">
+      <div class="force-icon">🛒</div>
+      <div class="force-name">购买者<br>议价能力</div>
+      <div class="force-level force-high">中高 MED-HIGH</div>
+      <div class="force-detail">中低端市场买家选择多→议价能力强；高端防爆/精密称重被MT/茵泰科锁定→买家选择少。大客户（化工/钢铁集团）集中采购议价权强。</div>
+    </div>
+  </div>
+
+  <!-- Price & Market Share: Per-Company Detail -->
+  <div class="subsection-title">💰 价格对标 —— 7家企业 × 6大品类 逐家价格对比（2026年，元/套）</div>
+  <div class="policy-table-wrap">
+    <table class="price-compare-table" style="font-size:9px;">
+      <thead>
+        <tr>
+          <th style="width:100px;">产品品类</th>
+          <th style="width:70px;">MT<br><span style="font-weight:400;font-size:7.5px;">进口</span></th>
+          <th style="width:70px;">茵泰科<br><span style="font-weight:400;font-size:7.5px;">进口</span></th>
+          <th style="width:75px;">柯力传感<br><span style="font-weight:400;font-size:7.5px;">国产</span></th>
+          <th style="width:75px;">中航电测<br><span style="font-weight:400;font-size:7.5px;">国产</span></th>
+          <th style="width:70px;">赛摩智能<br><span style="font-weight:400;font-size:7.5px;">国产</span></th>
+          <th style="width:70px;">坤维科技<br><span style="font-weight:400;font-size:7.5px;">国产</span></th>
+          <th style="width:65px;">进口vs国产<br>价差%</th>
+          <th style="width:170px;">价格数据来源 & 备注</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 称重传感器 -->
+        <tr>
+          <td><strong>称重传感器</strong><br><span style="font-size:7.5px;color:var(--mt-slate-light);">工业级1t | 全球$6.44亿 | 中国¥80亿</span></td>
+          <td style="color:var(--mt-red);font-weight:700;">2,500-4,000</td>
+          <td style="color:var(--mt-red);">2,000-3,500</td>
+          <td style="color:var(--mt-dark-green);font-weight:700;">800-1,500</td>
+          <td style="color:var(--mt-dark-green);">700-1,400</td>
+          <td style="color:var(--mt-dark-green);">600-1,200</td>
+          <td style="color:var(--mt-dark-green);">600-1,200</td>
+          <td><span class="tag-chip tag-red">50-75%</span></td>
+          <td style="font-size:8px;line-height:1.4;">📎 2026企业公开报价+采购平台(1688/慧聪)。MT为高端标杆价；国产均价¥800-1,500。进口含关税13%+增值税。</td>
+        </tr>
+        <!-- 称重仪表/终端 -->
+        <tr>
+          <td><strong>称重仪表/终端</strong><br><span style="font-size:7.5px;color:var(--mt-slate-light);">触摸屏+Profinet/EIP</span></td>
+          <td style="color:var(--mt-red);font-weight:700;">8,000-15,000</td>
+          <td style="color:var(--mt-red);">6,000-12,000</td>
+          <td style="color:var(--mt-dark-green);font-weight:700;">3,000-6,000</td>
+          <td style="color:var(--mt-dark-green);">2,800-5,500</td>
+          <td style="color:var(--mt-dark-green);">2,500-5,000</td>
+          <td></td>
+          <td><span class="tag-chip tag-red">50-60%</span></td>
+          <td style="font-size:8px;line-height:1.4;">📎 格隆汇《2026工业称重市场报告》。MT IND360国产化版降价~30%。耀华仪表配套生态占国产主导未单独列入。</td>
+        </tr>
+        <!-- 平台秤/地磅 -->
+        <tr>
+          <td><strong>平台秤/地磅</strong><br><span style="font-size:7.5px;color:var(--mt-slate-light);">3×9m 60t | 中国¥120亿</span></td>
+          <td style="color:var(--mt-red);font-weight:700;">8万-12万</td>
+          <td style="color:var(--mt-red);">7万-10万</td>
+          <td style="color:var(--mt-dark-green);font-weight:700;">3.5万-5.5万</td>
+          <td style="color:var(--mt-dark-green);">3万-5万</td>
+          <td style="color:var(--mt-dark-green);">3万-5万</td>
+          <td></td>
+          <td><span class="tag-chip tag-orange">45-55%</span></td>
+          <td style="font-size:8px;line-height:1.4;">📎 chinaidr.com《2025-2027中国地磅秤产业报告》。国内厂商超200家。MT仅港口/钢铁大项目中可见。国产定制化+本地服务壁垒强。</td>
+        </tr>
+        <!-- 防爆称重系统 -->
+        <tr>
+          <td><strong>防爆称重系统</strong><br><span style="font-size:7.5px;color:var(--mt-slate-light);">Zone2含安装|化工制药</span></td>
+          <td style="color:var(--mt-red);font-weight:700;">20万-40万</td>
+          <td style="color:var(--mt-red);font-weight:700;">18万-45万</td>
+          <td style="color:var(--mt-dark-green);">8万-18万</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><span class="tag-chip tag-red">55-65%</span></td>
+          <td style="font-size:8px;line-height:1.4;">📎 chinaidr.com防爆秤报告+茵泰科拜耳杭州案例。茵泰科为化工防爆市占率最高品牌(行业报告定性)。柯力通过子公司覆盖。防爆认证(PCEC/CENX)壁垒极高。</td>
+        </tr>
+        <!-- 动态检重秤 -->
+        <tr>
+          <td><strong>动态检重秤</strong><br><span style="font-size:7.5px;color:var(--mt-slate-light);">产线级|全球$6.16亿|中国¥78亿</span></td>
+          <td style="color:var(--mt-red);font-weight:700;">5万-10万</td>
+          <td style="color:var(--mt-red);">4万-8万</td>
+          <td style="color:var(--mt-dark-green);">1.8万-3.5万</td>
+          <td></td>
+          <td style="color:var(--mt-dark-green);">1.5万-3万</td>
+          <td></td>
+          <td><span class="tag-chip tag-orange">50-60%</span></td>
+          <td style="font-size:8px;line-height:1.4;">📎 格隆汇《全球自动检重秤2025》：MT+Ishida~24%，茵泰科#3，Top3~31%。Essentus中国展价格较进口低20-25%。国产(珠海大航/深圳通用)在中低端活跃。</td>
+        </tr>
+        <!-- 无人值守称重系统 -->
+        <tr>
+          <td><strong>无人值守称重系统</strong><br><span style="font-size:7.5px;color:var(--mt-slate-light);">软硬一体|中国增速~20%</span></td>
+          <td style="color:var(--mt-red);font-weight:700;">15万-30万</td>
+          <td style="color:var(--mt-red);">12万-25万</td>
+          <td style="color:var(--mt-dark-green);font-weight:700;">5万-10万</td>
+          <td style="color:var(--mt-dark-green);">4.5万-9万</td>
+          <td style="color:var(--mt-dark-green);">4万-8万</td>
+          <td></td>
+          <td><span class="tag-chip tag-red">60-70%</span></td>
+          <td style="font-size:8px;line-height:1.4;">📎 格隆汇《2026中国无人值守地磅系统报告》。国产化率最高品类。衡安24年+5000+案例未单独上市故未列入。MT仅在大集团标准化采购有份额。过磅8-15秒vs传统3-5分钟→效率提升300%+。</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Market Share Per Company -->
+  <div class="subsection-title">📊 市占率分析 —— 7家企业 × 6大品类 中国市场市占率估算（2026年）</div>
+  <div class="policy-table-wrap">
+    <table class="price-compare-table" style="font-size:9px;">
+      <thead>
+        <tr>
+          <th style="width:100px;">产品品类</th>
+          <th style="width:70px;">MT<br><span style="font-weight:400;font-size:7.5px;">进口</span></th>
+          <th style="width:70px;">茵泰科<br><span style="font-weight:400;font-size:7.5px;">进口</span></th>
+          <th style="width:75px;">柯力传感<br><span style="font-weight:400;font-size:7.5px;">国产</span></th>
+          <th style="width:75px;">中航电测<br><span style="font-weight:400;font-size:7.5px;">国产</span></th>
+          <th style="width:70px;">赛摩智能<br><span style="font-weight:400;font-size:7.5px;">国产</span></th>
+          <th style="width:70px;">坤维科技<br><span style="font-weight:400;font-size:7.5px;">国产</span></th>
+          <th style="width:65px;">进口合计<br>vs国产合计</th>
+          <th style="width:170px;">数据来源 & 估算逻辑</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 称重传感器 市占率 -->
+        <tr>
+          <td><strong>称重传感器</strong></td>
+          <td style="color:var(--mt-red);font-weight:700;">~10-12%<br><span style="font-size:7.5px;">高端市场#1</span></td>
+          <td style="color:var(--mt-red);">~5-7%<br><span style="font-size:7.5px;">母公司Minebea</span></td>
+          <td style="color:var(--mt-dark-green);font-weight:700;">~15-18%<br><span style="font-size:7.5px;">国内#1</span></td>
+          <td style="color:var(--mt-dark-green);">~8-12%<br><span style="font-size:7.5px;">军工+民品</span></td>
+          <td style="color:var(--mt-dark-green);">~2-3%<br><span style="font-size:7.5px;">皮带秤传感器</span></td>
+          <td style="color:var(--mt-dark-green);">~0.5-1%<br><span style="font-size:7.5px;">航天精密新入</span></td>
+          <td><span style="font-weight:700;">进口~20%<br>国产~80%</span></td>
+          <td style="font-size:8px;line-height:1.4;">📎 QYResearch《全球称重传感器2026》：全球Top5=Spectris、柯力、Minebea、MT、Flintec。柯力为中国最大称重传感器制造商(年报)。中国高端30%由MT+HBM+Vishay占有。国产中标率37%(2020)→82%(2023)(行业报告)。各公司份额从全球排名+营收对比推算。</td>
+        </tr>
+        <!-- 称重仪表 市占率 -->
+        <tr>
+          <td><strong>称重仪表/终端</strong></td>
+          <td style="color:var(--mt-red);font-weight:700;">~18-22%<br><span style="font-size:7.5px;">高端项目捆绑</span></td>
+          <td style="color:var(--mt-red);">~10-14%<br><span style="font-size:7.5px;">化工/制药</span></td>
+          <td style="color:var(--mt-dark-green);font-weight:700;">~15-20%<br><span style="font-size:7.5px;">含耀华配套生态</span></td>
+          <td style="color:var(--mt-dark-green);">~6-10%</td>
+          <td style="color:var(--mt-dark-green);">~4-7%</td>
+          <td></td>
+          <td><span style="font-weight:700;">进口~30%<br>国产~70%</span></td>
+          <td style="font-size:8px;line-height:1.4;">📎 格隆汇2026工业称重市场报告。仪表国产化率高于传感器。MT+茵泰科在高端项目中依赖传感器→仪表捆绑销售维持份额。耀华仪表在国内配套生态中占主导地位，但因非上市公司无精确数据。市场份额为基于仪表与传感器销量关联度的估算。</td>
+        </tr>
+        <!-- 地磅 市占率 -->
+        <tr>
+          <td><strong>平台秤/地磅</strong></td>
+          <td style="color:var(--mt-red);font-weight:700;">~10-14%<br><span style="font-size:7.5px;">港口/钢铁大项目</span></td>
+          <td style="color:var(--mt-red);">~3-5%</td>
+          <td style="color:var(--mt-dark-green);font-weight:700;">~10-14%</td>
+          <td style="color:var(--mt-dark-green);">~5-8%</td>
+          <td style="color:var(--mt-dark-green);">~8-12%<br><span style="font-size:7.5px;">皮带秤配套地磅</span></td>
+          <td></td>
+          <td><span style="font-weight:700;">进口~15%<br>国产~85%</span></td>
+          <td style="font-size:8px;line-height:1.4;">📎 chinaidr.com地磅产业报告：国内地磅厂商超200家，行业极为分散。MT份额估算：大型项目(港口/钢铁)中国内地磅年安装量约8000-10000台×MT渗透率~12%。赛摩份额基于皮带秤市场地位+配套地磅推算。博达/衡安(未上市)实际份额可能高于部分上市公司。</td>
+        </tr>
+        <!-- 防爆 市占率 -->
+        <tr>
+          <td><strong>防爆称重系统</strong></td>
+          <td style="color:var(--mt-red);font-weight:700;">~20-25%</td>
+          <td style="color:var(--mt-red);font-weight:700;">~30-35%<br><span style="font-size:7.5px;">化工市占率最高</span></td>
+          <td style="color:var(--mt-dark-green);">~12-18%<br><span style="font-size:7.5px;">通过子公司覆盖</span></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><span style="font-weight:700;">进口~60%<br>国产~40%</span></td>
+          <td style="font-size:8px;line-height:1.4;">📎 chinaidr.com防爆秤报告：茵泰科PCEC+CENX双认证+拜耳标杆案例→化工防爆领域被行业报告定性为"市占率极高"(转化为30-35%区间)。MT品牌溢价维持高端份额。国产份额为总市场扣除进口估算。常州乐博(IP68防爆)未上市未单独列入。</td>
+        </tr>
+        <!-- 检重秤 市占率 -->
+        <tr>
+          <td><strong>动态检重秤</strong></td>
+          <td style="color:var(--mt-red);font-weight:700;">~12-15%<br><span style="font-size:7.5px;">全球#1-2</span></td>
+          <td style="color:var(--mt-red);">~7-10%<br><span style="font-size:7.5px;">全球#3</span></td>
+          <td style="color:var(--mt-dark-green);">~2-4%</td>
+          <td></td>
+          <td style="color:var(--mt-dark-green);">~1-3%</td>
+          <td></td>
+          <td><span style="font-weight:700;">进口~31%<br>国产~69%</span></td>
+          <td style="font-size:8px;line-height:1.4;">📎 格隆汇《全球自动检重秤2025》：MT+Ishida~24%(各约12%)，茵泰科#3，Top3~31%。中国市场~78亿元(全球28%)。国产~69%含安立/WIPOTEC等外资+珠海大航/深圳通用等国产品牌。柯力/赛摩在检重秤领域体量较小。</td>
+        </tr>
+        <!-- 无人值守 市占率 -->
+        <tr>
+          <td><strong>无人值守称重系统</strong></td>
+          <td style="color:var(--mt-red);">~8-12%<br><span style="font-size:7.5px;">大集团标准化采购</span></td>
+          <td style="color:var(--mt-red);">~2-4%</td>
+          <td style="color:var(--mt-dark-green);font-weight:700;">~15-22%<br><span style="font-size:7.5px;">传感器+系统集成</span></td>
+          <td style="color:var(--mt-dark-green);">~8-12%</td>
+          <td style="color:var(--mt-dark-green);">~10-15%</td>
+          <td></td>
+          <td><span style="font-weight:700;">进口~12%<br>国产~88%</span></td>
+          <td style="font-size:8px;line-height:1.4;">📎 格隆汇《2026中国无人值守地磅系统报告》：国产化率最高品类(非标系统集成+本地服务)。衡安(24年+5000+案例+28种防作弊)为国内标杆但未上市。柯力份额含传感器+系统。博达/耀华等中小厂商占行业大量份额。各公司份额基于系统集成项目数+传感器出货量推算。</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="font-size:9px;color:var(--mt-slate-light);margin-top:-6px;margin-bottom:14px;line-height:1.6;">
+    <strong>📎 综合数据来源：</strong>QYResearch《全球称重传感器市场报告2026-2032》、Global Info Research《全球工业称重传感器市场2026》、格隆汇《全球自动检重秤市场分析2025》及《2026工业称重市场发展报告》、chinaidr.com《2025-2027中国地磅秤/防爆电子秤产业发展研究报告》、上市公司年报(柯力传感603662/中航成飞302132)、各企业官网与2026中国衡器展公开报道、1688/慧聪工业品采购平台报价。<br>
+    <strong>🏷 市占率估算方法说明：</strong>精确市占率属QYResearch/GIR等机构付费报告内容(单份$3000-5000)，表中为基于公开资料的<strong>合理区间估算</strong>。五步估算逻辑：<strong>(1)锚定公开排名：</strong>QYResearch Top5/Top3排名及相对份额定性描述为锚点；<strong>(2)营收倒推：</strong>柯力2025年报传感器营收÷行业总规模(中国¥80亿)推算其份额~15-18%；<strong>(3)趋势外推：</strong>国产中标率37%(2020)→82%(2023)趋势线延伸至2026年；<strong>(4)定性→定量：</strong>"茵泰科在化工防爆市占率极高"→基于该市场集中度特征转化为30-35%区间；<strong>(5)交叉验证：</strong>多种来源的份额区间交叉比对取合理交集。<br>
+    <strong>⚠ 局限性提示：</strong>(a)大量未上市企业(衡安/博达/耀华/常州乐博等)无公开财务数据，其份额为行业报告定性描述推算；(b)中国市场高度分散(地磅厂商200+家)，单一企业份额天花板较低；(c)各公司产品线边界模糊(传感器→仪表→系统集成存在垂直整合)，份额统计口径可能重叠。
+  </div>
+
+  <!-- Competitive Positioning -->
+  <div class="subsection-title">🎯 竞争格局总结 —— 三层梯队 + 关键趋势</div>
+  <div class="competitive-map">
+    <div class="comp-map-card">
+      <div class="map-title">🏆 竞争梯队（按综合实力）</div>
+      <div style="font-size:10px;color:var(--mt-slate);line-height:1.8;">
+        <strong style="color:var(--mt-red);">第一梯队（全球标杆）：</strong>梅特勒-托利多、茵泰科<br>
+        <span style="margin-left:8px;">→ 全球市占率合计~30%，毛利率55-60%，技术/认证壁垒极高</span><br>
+        <strong style="color:var(--mt-orange);">第二梯队（国产领军）：</strong>柯力传感、中航电测、赛摩智能<br>
+        <span style="margin-left:8px;">→ 国内市占率合计~20-25%，毛利率35-45%，快速技术追赶</span><br>
+        <strong style="color:var(--mt-dark-blue);">第三梯队（细分/新锐）：</strong>坤维科技、衡安、兵立称重、常州乐博等<br>
+        <span style="margin-left:8px;">→ 在特定场景（航天级/防作弊/防爆）建立差异化优势</span>
+      </div>
+    </div>
+    <div class="comp-map-card">
+      <div class="map-title">📈 2026年关键竞争趋势</div>
+      <div style="font-size:10px;color:var(--mt-slate);line-height:1.8;">
+        <strong>1. 国产替代加速：</strong>坤维航天级精度(0.01%FS)、赛摩OIML 0.2级认证 → 高端市场破冰<br>
+        <strong>2. 智能化升维竞争：</strong>MT DataMaster™ 3.0 vs 柯力"传感器森林" → 从卖硬件→卖系统+数据<br>
+        <strong>3. 机器人赛道交叉：</strong>柯力/中航六维力传感器月出货破千 → 称重+机器人力控融合<br>
+        <strong>4. 价格分层固化：</strong>高端进口溢价50-70% vs 国产中端 → 进口被迫国产化（MT常州工厂）<br>
+        <strong>5. 行业洗牌：</strong>低端同质化→价格战加速淘汰，专精特新"小巨人"政策利好差异化企业
+      </div>
+    </div>
+  </div>
+
+  <!-- Company Cards Section -->
+  <div class="subsection-title">🏢 头部企业重要举措追踪 —— 新产品 · 项目 · 价格 · 客户</div>
+  <div class="company-grid">
+    <!-- MT -->
+    <div class="company-card">
+      <div class="co-header">
+        <div class="co-name">🔬 梅特勒-托利多（Mettler Toledo）</div>
+        <div class="co-date">2025.11 – 2026.05</div>
+      </div>
+      <div class="co-tagline">全球市占率~25%，毛利率59.8% | 国产化+智能化双轮驱动</div>
+      <ul class="co-highlights">
+        <li><strong>2025.11 进博会：</strong>POWERCELL® GDD（绿隧数字检测）技术首发——传感器内置故障自诊断，称重系统可用性提升至99.9%</li>
+        <li><strong>2026.05：</strong>DataMaster™ 3.0 衡器智能管理系统发布——支持远程监控、预测性维护、数据防篡改审计追踪</li>
+        <li><strong>国产化进程：</strong>PowerMount™ 称重模块常州工厂投产，国产化率提升至60%，交付周期缩短至3周（原8周）</li>
+        <li><strong>项目落地：</strong>IND360 新一代称重终端获国内3家大型化工企业批量采购，单价较进口版本降低~30%</li>
+      </ul>
+      <div class="co-source">📎 来源：mt.com, 2025进博会新闻中心, Engineering News 2026.5.12</div>
+    </div>
+
+    <!-- Minebea Intec -->
+    <div class="company-card">
+      <div class="co-header">
+        <div class="co-name">🏭 茵泰科（Minebea Intec）</div>
+        <div class="co-date">2025.05 – 2026.01</div>
+      </div>
+      <div class="co-tagline">德国150年品牌 | 防爆称重化工市占率领先</div>
+      <ul class="co-highlights">
+        <li><strong>2025.08：</strong>MiNexx® 系列全新发布（替换Combics/Maxxis 4/5/X3系列）——三大型号覆盖控制柜/不锈钢/IP69、IEC 62443网络安全合规</li>
+        <li><strong>2025.05：</strong>PR 6003 称重模块安装套件——覆盖500kg-75t载荷，单人安装（<20kg），集成防倾覆装置可承受120kN水平力</li>
+        <li><strong>2025 中国衡器展：</strong>Essentus 动态检重秤首展——4款机型覆盖轻量/重量级产品，按需定制功能模块，价格较进口同类低20-25%</li>
+        <li><strong>标杆项目：</strong>拜耳杭州供应中心防爆称重系统——MP 79T传感器+PR 95T安装套件，智能校准Smart Calibration免砝码标定，节省3天调试时间</li>
+      </ul>
+      <div class="co-source">📎 来源：minebea-intec.com, Interweighing 2025展报, instrumentation.co.za 2025.06</div>
+    </div>
+
+    <!-- Keli Sensing -->
+    <div class="company-card">
+      <div class="co-header">
+        <div class="co-name">🤖 柯力传感（603662.SH）</div>
+        <div class="co-date">2026.Q1 – 2026.05</div>
+      </div>
+      <div class="co-tagline">国内传感器龙头 | "传感器森林"战略 | 机器人传感器月出货破千只</div>
+      <ul class="co-highlights">
+        <li><strong>2026.Q1 业绩：</strong>扣非归母净利润5,151.75万元（同比+20.76%），创一季度历史新高；机器人传感器月出货突破1,000只</li>
+        <li><strong>机器人传感器：</strong>六维力传感器已向70+家客户送样，AI理疗/人形机器人产品实现数百台批量出货；MEMS硅基应变力矩传感器攻关中</li>
+        <li><strong>"传感器森林"战略：</strong>控股/投资意普兴（安全光栅）、久通物联（智慧物流）、中科动态（高端力学测试）等10+家子公司，覆盖力/振动/水质/光纤测温/电量/位移/气体/流量等品类</li>
+        <li><strong>市场估值：</strong>华泰证券给予2027年PE 55x估值，目标价69.85元，维持"买入"评级；间接进入小鹏供应链体系</li>
+      </ul>
+      <div class="co-source">📎 来源：柯力传感2025年报/2026Q1季报（2026.4.28），华泰证券研报（2026.5.29），投资者互动平台（2026.5）</div>
+    </div>
+
+    <!-- ZEMIC -->
+    <div class="company-card">
+      <div class="co-header">
+        <div class="co-name">✈️ 中航电测 / 中航成飞（ZEMIC, 302132.SZ）</div>
+        <div class="co-date">2026.03</div>
+      </div>
+      <div class="co-tagline">军工技术转民用 | 智能称重传感器毫克级精度</div>
+      <ul class="co-highlights">
+        <li><strong>2026.03.31：</strong>投资者互动平台确认——六维力传感器、扭矩传感器、拉压力传感器在机器人领域已与部分国内客户建立合作，正逐步实现批量供应</li>
+        <li><strong>2026.03 AWE博览会（上海）：</strong>展出智能称重传感器——毫克级精度+工业级温控，面向智能家电、医疗精准计量及严苛环境；消费电子应变计已在智能穿戴/医疗/汽车电子广泛应用</li>
+        <li><strong>战略转型：</strong>从传统称重/应变计向机器人、智慧医疗、智能穿戴等战略新兴产业延伸，力敏测控方案提升人机交互体验</li>
+      </ul>
+      <div class="co-source">📎 来源：中航成飞投资者互动平台（2026.3.31），AWE 2026展报（2026.3.12-15），凤凰网财经（2026.3.31）</div>
+    </div>
+
+    <!-- Saimo -->
+    <div class="company-card">
+      <div class="co-header">
+        <div class="co-name">⚡ 赛摩智能（Saimo Intelligent）</div>
+        <div class="co-date">2026</div>
+      </div>
+      <div class="co-tagline">皮带秤国标主笔起草 | 全球首张OIML 0.2级认证</div>
+      <ul class="co-highlights">
+        <li><strong>2026年发布：</strong>"泰稳恒"系列高稳定性皮带秤——采用机器学习算法优化全生命周期稳定性，国际首创技术，达国际领先水平</li>
+        <li><strong>认证突破：</strong>获全球首张OIML 0.2级皮带秤认证，打破进口品牌在散料动态计量领域的技术垄断，精度对标国际一流</li>
+        <li><strong>市场定位：</strong>散状物料动态计量（矿山/电力/港口/钢铁），皮带秤国家标准主笔起草单位，行业话语权极强</li>
+        <li><strong>替代空间：</strong>国产方案价格较进口设备低30-50%，交付周期15-20天（行业平均30-45天）</li>
+      </ul>
+      <div class="co-source">📎 来源：2026年工业称重市场发展报告（格隆汇），2026中国衡器展公开报道</div>
+    </div>
+
+    <!-- Kunwei -->
+    <div class="company-card">
+      <div class="co-header">
+        <div class="co-name">🚀 坤维科技（Kunwei Technology）</div>
+        <div class="co-date">2026</div>
+      </div>
+      <div class="co-tagline">2026年国产新势力 | 航天级力控技术跨界 | 精度0.01%FS</div>
+      <ul class="co-highlights">
+        <li><strong>2026中国衡器展亮相：</strong>航天级力控技术跨界进入精密工业衡器领域——称重精度达0.01%FS，获CPA C6级认证，打破高端进口垄断</li>
+        <li><strong>技术差异化：</strong>以航天领域力控技术积累切入精密称重赛道，产品定位对标梅特勒-托利多高端线，但价格仅为进口的40-50%</li>
+        <li><strong>国产替代意义：</strong>在制药、半导体、精密制造等对精度要求极高的场景，此前长期被MT等进口品牌垄断，坤维为代表的新势力有望打开国产替代空间</li>
+      </ul>
+      <div class="co-source">📎 来源：2026中国衡器展现场报道（知乎，2026），行业调研报告</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ================================================================ -->
+<!-- TAB 5: 3C行业机会分析 —— 应用场景 · 市场机会 · STP策略 -->
+<!-- ================================================================ -->
+<div class="tab-content" id="tab-3c">
+
+  <div class="section-title"><span class="icon">📱</span>3C电子制造业 —— 工业称重的新蓝海</div>
+
+  <!-- 3C行业概况 -->
+  <div class="chart-row">
+    <div class="comp-map-card" style="grid-column:1;">
+      <div class="map-title">📊 中国3C电子制造业规模（2025年）</div>
+      <div style="font-size:10px;color:var(--mt-slate);line-height:1.8;">
+        <strong>3C市场总销售：</strong><span style="color:var(--mt-red);font-weight:700;">超1.1万亿元</span>（+18.5% YoY）<br>
+        <strong>规上企业营收：</strong><span style="color:var(--mt-dark-blue);font-weight:700;">14万亿元</span>（+8.3% YoY）<br>
+        <strong>利润总额：</strong>5,700亿元（+12.8%）<br>
+        <strong>工业增加值增速：</strong>+10.6%（领跑工业经济）<br>
+        <strong>智能手机销售：</strong>4,715亿元（+20.0%）<br>
+        <strong>AI终端爆发：</strong>AI玩具+427% | 电子教育+43%<br>
+        <strong>政策目标：</strong>工信部稳增长方案→增加值年均+7%，万亿营收省份达5个
+      </div>
+      <div style="font-size:8px;color:var(--mt-slate-light);margin-top:4px;">📎 来源：工信部《电子信息制造业2025-2026年稳增长行动方案》、中国3C电子市场2025年度报告(moojing-global.com)</div>
+    </div>
+    <div class="comp-map-card" style="grid-column:2;">
+      <div class="map-title">🎯 为什么3C行业是称重业务新蓝海？</div>
+      <div style="font-size:10px;color:var(--mt-slate);line-height:1.8;">
+        <strong>1. 精度需求爆发：</strong>从传统工业级(0.1%→0.01%)向3C级(0.01g→0.1mg)跃升<br>
+        <strong>2. 100%全检替代抽检：</strong>3C元器件不良品流出率从5.3%→0.3%，全检成为产线标配<br>
+        <strong>3. 国产替代窗口：</strong>精密检重秤国产价格仅为进口60%，投资回收期≤8个月<br>
+        <strong>4. 政策强驱动：</strong>智能制造2027目标→称重设备联网率90%<br>
+        <strong>5. 产值密度高：</strong>单条3C产线对称重设备投入为传统工业的3-5倍<br>
+        <strong>6. 客户粘性强：</strong>一旦通过苹果/华为供应链认证，替换成本极高→长期稳定收入
+      </div>
+    </div>
+  </div>
+
+  <!-- 5大应用场景 -->
+  <div class="subsection-title">🔧 工业称重在3C制造的5大核心应用场景</div>
+  <div class="analysis-grid">
+    <div class="analysis-card">
+      <div class="indicator">💉 场景一：点胶称重闭环（Dispensing Calibration）</div>
+      <div class="detail">
+        <strong>定位：</strong>3C制造中最广泛使用精密称重的工艺环节<br>
+        <strong>应用：</strong>手机芯片Underfill、扬声器密封点胶、LED荧光粉点涂、IC封装<br>
+        <strong>精度要求：</strong>0.1mg-1mg级分辨率，称重模块量程0-10g至0-1000g<br>
+        <strong>核心价值：</strong>以重量为闭环反馈目标，自动补偿胶水粘度/温度/压力波动→不良率降低60-80%<br>
+        <strong>代表产品：</strong>MT WKC系列(0.1mg)、国产BDM1C在线称重模块<br>
+        <strong>市场机会：</strong><span class="highlight">中国每年新增3C点胶产线超5000条，每条需2-8个称重模块→年市场规模3-5亿元</span>
+      </div>
+    </div>
+    <div class="analysis-card">
+      <div class="indicator">🔍 场景二：元器件在线检重（In-line Checkweighing）</div>
+      <div class="detail">
+        <strong>定位：</strong>2025-2026年增长最快的3C称重细分领域<br>
+        <strong>应用：</strong>微型芯片/电阻/连接器缺件检测、芯片托盘完整性验证、PCB组件重量校验<br>
+        <strong>精度要求：</strong>0.01g刻度，动态精度±0.02-0.03g，速度60-120件/分钟<br>
+        <strong>核心价值：</strong>从人工抽检(漏检率3-6%)→100%在线全检(漏检率<0.1%)<br>
+        <strong>落地案例：</strong>深圳某半导体厂→不良流出率5.3%→0.3%，年减少售后损失35万元<br>
+        <strong>市场机会：</strong><span class="highlight">电子元器件全检率从<30%→目标>70%→新增检重秤需求超2万台/年→市场规模10-15亿元</span>
+      </div>
+    </div>
+    <div class="analysis-card info">
+      <div class="indicator">🧮 场景三：微小零件计数称重（Component Counting）</div>
+      <div class="detail">
+        <strong>定位：</strong>SMT物料管理与仓储盘点的刚需工具<br>
+        <strong>应用：</strong>SMT电阻/电容备料计数、连接器/紧固件入库检验、高值元器件库存盘点<br>
+        <strong>精度要求：</strong>0.001-0.01g可读性，99.2%+计数准确率，500种物料ID存储<br>
+        <strong>核心价值：</strong>替代人工计数(3-5分钟/批→10秒/批)，消除欠料停线风险<br>
+        <strong>代表产品：</strong>日本A&D FC-Si系列(0.001g)、国产WinCK900TC<br>
+        <strong>市场机会：</strong><span class="highlight">中国3C制造企业超5万家，计数秤年替换+新增需求约5-8万台→市场规模3-5亿元</span>
+      </div>
+    </div>
+    <div class="analysis-card info">
+      <div class="indicator">⚖️ 场景四：精密配料/灌装称重（Precision Batching）</div>
+      <div class="detail">
+        <strong>定位：</strong>3C制造中化工材料(胶水/浆料/电解液)的精准投料<br>
+        <strong>应用：</strong>锂电池电解液灌装、导热硅脂配料、光学胶(OCA)涂布前计量、电子浆料制备<br>
+        <strong>精度要求：</strong>0.01-0.1g配料精度，防爆/防腐环境适配<br>
+        <strong>核心价值：</strong>材料成本占3C制造成本15-25%，精准配料直接降低原料浪费3-8%<br>
+        <strong>市场机会：</strong><span class="highlight">3C用锂电池(手机/耳机/手表)年产超20亿只→电解液灌装称重需求→年市场约2-3亿元</span>
+      </div>
+    </div>
+    <div class="analysis-card">
+      <div class="indicator">🤖 场景五：AI视觉+称重融合检测</div>
+      <div class="detail">
+        <strong>定位：</strong>下一代3C质检技术方向——称重+视觉+AI三合一<br>
+        <strong>应用：</strong>手机整机重量+外观联合检测、可穿戴设备密闭性(重量变化法)、PCB焊后重量+AOI融合判定<br>
+        <strong>技术趋势：</strong>MT DataMaster™ 3.0已实现称重数据AI分析→预测性维护+异常检测；国产SG-100已实现0.01g+120件/分+气吹无损剔除<br>
+        <strong>核心价值：</strong>将称重从"单一计量工具"升级为"质量大数据节点"→客户付费意愿提升2-3倍<br>
+        <strong>市场机会：</strong><span class="highlight">AI+称重融合方案ASP为传统称重的3-5倍→即使渗透率仅10%，市场规模即可达15-20亿元</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 市场机会规模 -->
+  <div class="subsection-title">💰 3C称重市场机会量化估算</div>
+  <div class="policy-table-wrap">
+    <table class="price-compare-table" style="font-size:9.5px;">
+      <thead>
+        <tr>
+          <th>应用场景</th>
+          <th>当前市场规模<br>（2025年估算）</th>
+          <th>3-5年增速</th>
+          <th>潜力市场规模<br>（2030年）</th>
+          <th>国产化率<br>（当前→目标）</th>
+          <th>关键驱动因素</th>
+          <th style="width:140px;">估算逻辑 & 数据来源</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>点胶称重模块</strong></td>
+          <td style="color:var(--mt-dark-blue);font-weight:700;">¥3-5亿</td>
+          <td>15-20%</td>
+          <td style="color:var(--mt-red);font-weight:700;">¥8-12亿</td>
+          <td>30%→55%</td>
+          <td>3C点胶产线年增5000+条；每条配2-8个称重模块</td>
+          <td style="font-size:8px;line-height:1.3;">点胶设备年出货量(行业统计)×称重模块渗透率(专家访谈~60%)×ASP¥3000-8000</td>
+        </tr>
+        <tr>
+          <td><strong>元器件在线检重秤</strong></td>
+          <td style="color:var(--mt-dark-blue);font-weight:700;">¥10-15亿</td>
+          <td>25-30%</td>
+          <td style="color:var(--mt-red);font-weight:700;">¥35-50亿</td>
+          <td>40%→70%</td>
+          <td>全检率从<30%→>70%；检重秤单价¥3-8万/台</td>
+          <td style="font-size:8px;line-height:1.3;">中国电子元器件产值(中国电子元件协会)×全检率提升空间×ASP。<a href="https://m.gelonghui.com/p/2666375" style="color:var(--mt-teal);">格隆汇检重秤市场报告</a></td>
+        </tr>
+        <tr>
+          <td><strong>微小零件计数秤</strong></td>
+          <td style="color:var(--mt-dark-blue);font-weight:700;">¥3-5亿</td>
+          <td>10-12%</td>
+          <td style="color:var(--mt-dark-blue);">¥5-8亿</td>
+          <td>60%→85%</td>
+          <td>相对成熟市场；增量来自MES集成升级+进口高端替代</td>
+          <td style="font-size:8px;line-height:1.3;">3C制造企业≥5万家(企查查)×计数秤渗透率30%×ASP¥2000-5000</td>
+        </tr>
+        <tr>
+          <td><strong>精密配料称重</strong></td>
+          <td style="color:var(--mt-dark-blue);font-weight:700;">¥2-3亿</td>
+          <td>12-18%</td>
+          <td style="color:var(--mt-dark-blue);">¥5-7亿</td>
+          <td>25%→50%</td>
+          <td>3C锂电池+电子材料国产化→配料精度要求提升</td>
+          <td style="font-size:8px;line-height:1.3;">3C电池产量20亿只/年(工信部)×灌装称重渗透率×ASP估算</td>
+        </tr>
+        <tr>
+          <td><strong>AI+称重融合方案</strong></td>
+          <td style="color:var(--mt-dark-blue);font-weight:700;">¥2-4亿</td>
+          <td>35-45%</td>
+          <td style="color:var(--mt-red);font-weight:700;">¥15-25亿</td>
+          <td>15%→35%</td>
+          <td>增长最快品类；ASP为传统称重的3-5倍；渗透率从<5%→>15%</td>
+          <td style="font-size:8px;line-height:1.3;">综合MT DataMaster+国产SG系列出货趋势；AI视觉+称重融合在苹果供应链已开始试点</td>
+        </tr>
+        <tr>
+          <td colspan="2"><strong>合计</strong></td>
+          <td style="color:var(--mt-dark-green);font-weight:700;">¥20-32亿</td>
+          <td><strong>~22% CAGR</strong></td>
+          <td style="color:var(--mt-red);font-weight:700;font-size:12px;">¥68-102亿</td>
+          <td>35%→55%</td>
+          <td colspan="2">3C精密称重当前相当于工业称重总市场的~8-12%，但贡献了>20%的利润池(高毛利特征)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="font-size:9px;color:var(--mt-slate-light);margin-top:-8px;margin-bottom:12px;">
+    📎 来源：格隆汇《全球自动检重秤市场分析2025》、中国电子元件行业协会数据、工信部电子信息制造业统计公报、行业专家访谈。标"估算"的数据为基于公开行业规模×渗透率×ASP的合理测算。
+  </div>
+
+  <!-- 3C产业集群与头部企业 -->
+  <div class="subsection-title">📍 3C制造产业集群 —— 头部省市与重点企业</div>
+  <div class="policy-table-wrap">
+    <table class="price-compare-table" style="font-size:9.5px;">
+      <thead>
+        <tr>
+          <th style="width:70px;">集群/省市</th>
+          <th style="width:90px;">核心城市</th>
+          <th>3C产业定位</th>
+          <th>头部企业（品牌/OEM/ODM）</th>
+          <th>称重需求场景</th>
+          <th>市场机会评级</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>珠三角</strong></td>
+          <td>深圳 · 东莞 · 惠州</td>
+          <td>全球最大3C制造集群，占中国3C产值<span style="color:var(--mt-red);font-weight:700;">~35%</span></td>
+          <td><strong>品牌：</strong>华为、OPPO、vivo、荣耀、传音、TCL、创维<br><strong>OEM/ODM：</strong>富士康(龙华/观澜)、比亚迪电子、立讯精密、闻泰科技、华勤技术、龙旗科技</td>
+          <td>点胶称重、在线检重、SMT计数、AI称重融合——<strong>全场景覆盖</strong></td>
+          <td><span class="tag-chip tag-red">★★★★★</span><br><span style="font-size:8px;">最大+最密集</span></td>
+        </tr>
+        <tr>
+          <td><strong>长三角</strong></td>
+          <td>苏州 · 昆山 · 上海 · 无锡</td>
+          <td>笔记本电脑/平板制造中心，占中国3C产值<span style="color:var(--mt-red);font-weight:700;">~25%</span></td>
+          <td><strong>品牌：</strong>小米(北京/亦庄)、联想(武汉/合肥)<br><strong>OEM/ODM：</strong>和硕(苏州)、仁宝(昆山)、纬创(昆山)、广达(上海)、华勤技术(上海)、立讯精密(昆山)</td>
+          <td>PC/平板组装线检重、电池称重、SMT缺件检测</td>
+          <td><span class="tag-chip tag-red">★★★★★</span><br><span style="font-size:8px;">ODM密集+设备更新需求大</span></td>
+        </tr>
+        <tr>
+          <td><strong>成渝双城</strong></td>
+          <td>成都 · 重庆</td>
+          <td>西部3C制造新中心，占中国3C产值<span style="color:var(--mt-orange);font-weight:700;">~10%</span></td>
+          <td><strong>品牌：</strong>OPPO(重庆)、vivo(重庆)<br><strong>OEM/ODM：</strong>富士康(成都iPad)、比亚迪电子(重庆)、纬创(成都)</td>
+          <td>平板/手机组装线称重、点胶模块——增量市场</td>
+          <td><span class="tag-chip tag-orange">★★★★</span><br><span style="font-size:8px;">增速最快区域</span></td>
+        </tr>
+        <tr>
+          <td><strong>河南</strong></td>
+          <td>郑州 · 洛阳</td>
+          <td>全球最大iPhone生产基地，占全球iPhone产量<span style="color:var(--mt-red);font-weight:700;">~50%</span></td>
+          <td><strong>OEM：</strong>富士康(郑州航空港，员工25万+)</td>
+          <td>iPhone组装线高精度称重、点胶校准——需求高度集中</td>
+          <td><span class="tag-chip tag-orange">★★★★</span><br><span style="font-size:8px;">单一客户体量极大</span></td>
+        </tr>
+        <tr>
+          <td><strong>湖北/湖南</strong></td>
+          <td>武汉 · 长沙</td>
+          <td>中部新兴3C集群，占中国3C产值<span style="color:var(--mt-dark-blue);font-weight:700;">~8%</span></td>
+          <td><strong>品牌：</strong>联想(武汉，全球最大PC生产基地之一)、小米(武汉，AIoT产线)<br><strong>面板：</strong>华星光电(武汉)、京东方(武汉)</td>
+          <td>AIoT设备称重、面板制造精密称重——新品类需求</td>
+          <td><span class="tag-chip tag-blue">★★★</span><br><span style="font-size:8px;">政策扶持+中部崛起</span></td>
+        </tr>
+        <tr>
+          <td><strong>浙江</strong></td>
+          <td>杭州 · 宁波 · 嘉兴</td>
+          <td>智能安防+物联网设备制造，占中国3C产值<span style="color:var(--mt-dark-blue);font-weight:700;">~5%</span></td>
+          <td><strong>品牌：</strong>海康威视(杭州)、大华股份(杭州)、萤石网络<br><strong>IoT：</strong>涂鸦智能(杭州)、宇树科技(机器人)</td>
+          <td>摄像头模组称重、机器人传感器标定——高附加值场景</td>
+          <td><span class="tag-chip tag-blue">★★★</span><br><span style="font-size:8px;">机器视觉+称重融合最佳切入点</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="font-size:9px;color:var(--mt-slate-light);margin-top:-8px;margin-bottom:12px;">
+    📎 来源：工信部《电子信息制造业2025-2026年稳增长行动方案》、各省经信厅产业集群数据、企业官网/年报、2026中国3C电子市场报告(moojing-global.com)。产值占比为基于公开产量+营收数据的行业估算。
+  </div>
+
+  <!-- STP策略 -->
+  <div class="subsection-title">🎯 STP策略 —— 如何在3C称重市场精准切入并建立壁垒</div>
+
+  <div class="forces-grid">
+    <div class="force-card">
+      <div class="force-icon">🎯</div>
+      <div class="force-name">S: Segmentation<br>市场细分</div>
+      <div class="force-level" style="color:var(--mt-dark-blue);font-size:11px;">四大细分维度</div>
+      <div class="force-detail" style="text-align:left;">
+        <strong>按应用场景：</strong>点胶称重 | 在线检重 | 计数称重 | 配料称重 | AI融合<br>
+        <strong>按精度层级：</strong>经济型(0.1g) | 精密型(0.01g) | 超精密型(≤1mg)<br>
+        <strong>按客户规模：</strong>苹果/华为/Tesla供应链(Tier1) | ODM/OEM大厂 | 中小电子厂<br>
+        <strong>按地域集群：</strong>珠三角(深圳/东莞~35%) | 长三角(昆山/苏州~25%) | 成渝(~10%) | 其他
+      </div>
+    </div>
+    <div class="force-card">
+      <div class="force-icon">🎯</div>
+      <div class="force-name">T: Targeting<br>目标选择</div>
+      <div class="force-level force-high" style="font-size:11px;">优先攻三大细分市场</div>
+      <div class="force-detail" style="text-align:left;">
+        <strong>🥇 第一优先级：</strong>在线检重秤（¥10-15亿→¥35-50亿，增速最快）→主打国产替代进口(MT/安立)，ASP¥3-8万<br>
+        <strong>🥈 第二优先级：</strong>点胶称重模块（¥3-5亿→¥8-12亿）→产品标准化+ODM/OEM大厂批量供货<br>
+        <strong>🥉 第三优先级：</strong>AI+称重融合（¥2-4亿→¥15-25亿，增速最高）→与AI视觉厂商战略联盟，打造差异化壁垒
+      </div>
+    </div>
+    <div class="force-card">
+      <div class="force-icon">📍</div>
+      <div class="force-name">P: Positioning<br>差异化定位</div>
+      <div class="force-level" style="color:var(--mt-dark-green);font-size:11px;">三层定位策略</div>
+      <div class="force-detail" style="text-align:left;">
+        <strong>🆚 vs 进口(MT/安立)：</strong>"同等精度+60%价格+48h响应"——性价比+服务差异化<br>
+        <strong>🆚 vs 国产同行：</strong>"0.01g精度+AI诊断+MES直连"——技术领先+数据价值差异化<br>
+        <strong>🆚 vs 传统称重厂商：</strong>"3C专用而非通用"——行业know-how+认证壁垒(苹果MFi/华为供应链)
+      </div>
+    </div>
+    <div class="force-card">
+      <div class="force-icon">🛡️</div>
+      <div class="force-name">护城河策略</div>
+      <div class="force-level force-med" style="font-size:11px;">四大壁垒构建</div>
+      <div class="force-detail" style="text-align:left;">
+        <strong>1. 认证壁垒：</strong>主动申请苹果MFi/华为供应链认证→认证周期12-18个月→先发优势<br>
+        <strong>2. 数据壁垒：</strong>称重数据+MES深度绑定→客户迁移成本=产线停线风险<br>
+        <strong>3. 服务壁垒：</strong>珠三角/长三角设本地应用中心→2小时到现场→进口72h无法匹敌<br>
+        <strong>4. 生态壁垒：</strong>与点胶机/AOI/机械手厂商建立联合方案→"称重+"预集成
+      </div>
+    </div>
+    <div class="force-card">
+      <div class="force-icon">📈</div>
+      <div class="force-name">进入路径建议</div>
+      <div class="force-level" style="color:var(--mt-teal);font-size:11px;">四阶段推进</div>
+      <div class="force-detail" style="text-align:left;">
+        <strong>Phase 1 (0-6月)：</strong>推标准化检重秤→从ODM/OEM大厂(闻泰/华勤/龙旗)切入，快速起量<br>
+        <strong>Phase 2 (6-12月)：</strong>点胶称重模块→与点胶机厂商(诺信/武藏/国产)合作预集成<br>
+        <strong>Phase 3 (12-18月)：</strong>攻苹果/华为供应链→AI+称重融合方案试点<br>
+        <strong>Phase 4 (18-24月)：</strong>建立3C称重子品牌→行业专用产品线独立运营
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ================================================================ -->
+<!-- TAB 6: 战略建议 —— 如何领先工业称重赛道 -->
+<!-- ================================================================ -->
+<div class="tab-content" id="tab-strategy">
+
+  <div class="section-title"><span class="icon">🎯</span>战略建议：基于四维洞察的工业称重领先路径</div>
+
+  <div style="font-size:10.5px;color:var(--mt-slate);margin-bottom:14px;line-height:1.6;background:#F4F8F0;padding:12px 16px;border-radius:6px;border-left:4px solid var(--mt-green);">
+    <strong>分析框架：</strong>本页建议综合四个维度的洞察——<strong style="color:var(--mt-dark-green);">①宏观三驾马车</strong>（消费+投资+出口趋势）→ 需求方向；<strong style="color:var(--mt-orange);">②上游原材料与价格</strong>（PPI/钢价/有色金属）→ 成本与供应链；<strong style="color:var(--mt-dark-blue);">③政策与资金</strong>（设备更新/计量创新/AI制造/碳计量）→ 政策红利窗口；<strong style="color:var(--mt-red);">④竞争格局</strong>（五力分析/价格对标/企业追踪）→ 竞争定位。以下8条建议按<strong>优先级从高到低</strong>排列。
+  </div>
+
+  <!-- 建议 1 -->
+  <div class="opp-card">
+    <div class="opp-header">
+      <div class="opp-title">🥇 建议一：聚焦"3C+新能源"双引擎，重构行业组合</div>
+      <div class="opp-amount">最高优先级</div>
+    </div>
+    <div class="opp-detail">
+      <strong>依据：</strong>宏观→装备制造业+8.3%/高技术制造业+12.8%(高景气) vs 房地产-13.7%(持续下行)；竞争→3C称重市场CAGR 22%(¥20亿→¥100亿/2030年)，新能源锂电+光伏称重需求持续增长(+31%锂电产量)；政策→设备更新5万亿+智能制造试点500+家。<br>
+      <strong>行动：</strong>
+      <span style="color:var(--mt-dark-green);">① 立即设立3C称重产品线，12个月内推出标准化检重秤(0.01g/120件/分)，对标MT性能、国产价格(60%定价)；</span>
+      ② 新能源(锂电/光伏)精密配料称重维持高投入，目标市占率从<5%→15%；③ 主动收缩建筑称重(搅拌站/建材)，将资源转移到3C+新能源。
+    </div>
+  </div>
+
+  <!-- 建议 2 -->
+  <div class="opp-card">
+    <div class="opp-header">
+      <div class="opp-title">🥈 建议二：全力捕获"设备更新"政策红利，称重设备→补贴目录</div>
+      <div class="opp-amount">5万亿级别</div>
+    </div>
+    <div class="opp-detail">
+      <strong>依据：</strong>宏观→设备工器具购置+11.5%(企业设备投资意愿强)；政策→国务院设备更新方案→2027年设备投资增长25%+各省15-30%购置补贴+技改贷款贴息；竞争→率先将称重设备纳入省级补贴目录的企业将获得结构性成本优势。<br>
+      <strong>行动：</strong>
+      <span style="color:var(--mt-dark-green);">① 梳理全产品线中符合"智能检测装备""仪器仪表"定义的产品→制作补贴申报指南(含政策依据、认定标准)；</span>
+      ② 主动对接山东(¥3000万/项目)、广东(¥5000万/项目)、江苏(15-30%奖补)三省经信部门→推动称重设备进入首台套/首购首用目录；③ 在销售团队中设置"政策补贴专员"→帮客户算补贴账→变"卖设备"为"帮客户省钱"。
+    </div>
+  </div>
+
+  <!-- 建议 3 -->
+  <div class="opp-card">
+    <div class="opp-header">
+      <div class="opp-title">🥉 建议三：AI+称重——从"计量工具"升级为"质量数据平台"</div>
+      <div class="opp-amount">ASP提升3-5x</div>
+    </div>
+    <div class="opp-detail">
+      <strong>依据：</strong>政策→工信部"人工智能+质量"应用全景图+智能工厂梯度培育(2026.4.7厅科函147号)；竞争→MT DataMaster™ 3.0已发布(远程监控+预测维护+数据防篡改)，国产必须跟进否则高端市场被锁定；3C场景→AI称重融合方案ASP为传统称重3-5倍。<br>
+      <strong>行动：</strong>
+      <span style="color:var(--mt-dark-green);">① 12个月内推出"称重数据云平台"：远程校准+SPC分析+预测性维护→SaaS年费模式(¥5000-20000/年/产线)；</span>
+      ② 优先在3C检重秤+防爆称重系统两个品类实现AI异常检测功能；③ 申请工信部"人工智能+质量"试点示范项目→获取政策背书+试点经费。
+    </div>
+  </div>
+
+  <!-- 建议 4 -->
+  <div class="opp-card">
+    <div class="opp-header">
+      <div class="opp-title">⚡ 建议四：供应链对冲——钢材/有色涨价下的成本管控</div>
+      <div class="opp-amount">保住毛利率</div>
+    </div>
+    <div class="opp-detail">
+      <strong>依据：</strong>上游价格→钢材+22.5%/有色金属+38.9%(PPI 45个月新高)/钢价中枢上移至3413元/吨；竞争→国产化替代趋势中，价格优势是核心武器→必须控制成本才能维持价差(进口vs国产50-70%)。<br>
+      <strong>行动：</strong>
+      <span style="color:var(--mt-dark-green);">① 与钢厂签订3-6个月远期锁价合同→锁定传感器/秤体用钢材成本的60%；</span>
+      ② 传感器壳体从全钢→钢铝复合(铝价涨幅低于钢)→单件成本可降10-15%；③ 关键电子元件(AD转换器/应变计)推进国产替代→从进口依赖度40%→目标<20%。
+    </div>
+  </div>
+
+  <!-- 建议 5 -->
+  <div class="opp-card">
+    <div class="opp-header">
+      <div class="opp-title">🌍 建议五：出口借势——乘出口+18.7%东风，布局"一带一路"</div>
+      <div class="opp-amount">全球化窗口</div>
+    </div>
+    <div class="opp-detail">
+      <strong>依据：</strong>宏观→出口+18.7%(港口/物流地磅需求旺盛)、货运周转量+4.3%；竞争→MT/茵泰科在东南亚/中东/非洲仍为高端垄断，但中国称重设备性价比(价差50-70%)+交付周期优势(15-20天vs进口30-60天)具有输出能力；政策→西部大开发口岸物流扩容(新疆/内蒙古口岸地磅)。<br>
+      <strong>行动：</strong>
+      <span style="color:var(--mt-dark-green);">① 优先布局东南亚(越南/印尼/泰国)→中国3C/制造产能外迁→称重设备跟随出海；</span>
+      ② 联合中国电建/中交集团等央企→在"一带一路"基建项目中捆绑提供地磅/称重系统；③ 取得OIML国际认证→消除出海技术壁垒。
+    </div>
+  </div>
+
+  <!-- 建议 6 -->
+  <div class="opp-card">
+    <div class="opp-header">
+      <div class="opp-title">🏛️ 建议六：抢占"碳计量"赛道——称重×碳排放=新品类</div>
+      <div class="opp-amount">蓝海先发</div>
+    </div>
+    <div class="opp-detail">
+      <strong>依据：</strong>政策→市场监管总局碳计量体系建设+200+城市碳计量试点；竞争→碳计量称重为全新品类(将物料称重数据与碳排放核算打通)，目前几乎空白→先发优势极其重要；行业趋势→钢铁/石化/化工/建材等高碳行业为碳计量重点领域。<br>
+      <strong>行动：</strong>
+      <span style="color:var(--mt-dark-green);">① 与山东/福建碳计量试点城市合作→共同开发"碳计量称重系统"标准与样机；</span>
+      ② 在钢铁/化工称重系统中集成碳排放因子计算模块→将重量数据×排放因子=实时碳排量→从"卖称重"升级为"卖碳管理"；③ 申请碳计量相关专利3-5项→构建知识产权壁垒。
+    </div>
+  </div>
+
+  <!-- 建议 7 -->
+  <div class="opp-card">
+    <div class="opp-header">
+      <div class="opp-title">🤝 建议七：竞合策略——与机器人/视觉厂商战略联盟</div>
+      <div class="opp-amount">生态卡位</div>
+    </div>
+    <div class="opp-detail">
+      <strong>依据：</strong>竞争→柯力传感已投资机器人传感器(六维力月出货破千)+"传感器森林"生态(10+家子公司)；3C场景→AI视觉+称重融合为下一代质检技术方向；行业趋势→称重从独立设备→产线集成的"传感节点"，单打独斗无法建立壁垒。<br>
+      <strong>行动：</strong>
+      <span style="color:var(--mt-dark-green);">① 与1-2家AOI/机器视觉厂商(如华睿科技/凌云光)建立联合方案→"称重+视觉"一体机；</span>
+      ② 与点胶机/灌装机厂商(诺信/武藏/国产)建立预集成→称重模块成为其标配选件→被动销售；③ 对柯力/中航的机器人传感器布局保持跟踪→如自身不具备资源，考虑产业基金投资参股方式卡位。
+    </div>
+  </div>
+
+  <!-- 建议 8 -->
+  <div class="opp-card">
+    <div class="opp-header">
+      <div class="opp-title">🏢 建议八：组织能力建设——从"卖产品"转向"卖行业解决方案"</div>
+      <div class="opp-amount">长期壁垒</div>
+    </div>
+    <div class="opp-detail">
+      <strong>依据：</strong>竞争→MT/茵泰科的真正壁垒不仅是技术，更是"行业know-how+解决方案+全球服务网络"三位一体；国产企业的机会不在于全面超越，而在于<strong>在细分行业做得比MT更深</strong>；价格对标表→进口vs国产价差50-70%→这一价差正在被MT国产化(常州工厂→降价30%)压缩→长期必须靠行业深度而非价格竞争。<br>
+      <strong>行动：</strong>
+      <span style="color:var(--mt-dark-green);">① 按行业设立BU/产品线(3C/新能源/化工/物流/钢铁)→每个行业配置销售+应用工程师+售后服务"铁三角"；</span>
+      ② 珠三角(深圳/东莞)设3C称重应用中心→深度参与客户产线设计→从"设备供应商"升级为"产线质量顾问"；③ 建立行业案例库→化工防爆/3C检重/港口地磅各积累10+标杆案例→形成行业口碑。
+    </div>
+  </div>
+
+  <!-- 总结 -->
+  <div class="subsection-title">📋 八条建议优先级与时间线总览</div>
+  <div class="policy-table-wrap">
+    <table class="price-compare-table" style="font-size:9.5px;">
+      <thead>
+        <tr>
+          <th style="width:38px;">优先级</th>
+          <th>战略建议</th>
+          <th>核心驱动</th>
+          <th style="width:80px;">短期(0-6月)</th>
+          <th style="width:80px;">中期(6-12月)</th>
+          <th style="width:80px;">长期(12-24月)</th>
+          <th>成功指标</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="tag-chip tag-red">P0</span></td>
+          <td><strong>聚焦3C+新能源</strong></td>
+          <td>宏观(高景气行业)+竞争(蓝海)</td>
+          <td>设立3C产品线；标准检重秤发布</td>
+          <td>3C客单价突破¥100万/家</td>
+          <td>3C称重占营收>25%</td>
+          <td>3C市占率>10%</td>
+        </tr>
+        <tr>
+          <td><span class="tag-chip tag-red">P0</span></td>
+          <td><strong>设备更新补贴捕获</strong></td>
+          <td>政策(5万亿)+宏观(设备购置+11.5%)</td>
+          <td>梳理产品线→制作补贴指南</td>
+          <td>进入3省补贴目录</td>
+          <td>补贴驱动销售>30%</td>
+          <td>年补贴驱动营收>¥5000万</td>
+        </tr>
+        <tr>
+          <td><span class="tag-chip tag-orange">P1</span></td>
+          <td><strong>AI+称重平台</strong></td>
+          <td>政策(AI全景图)+竞争(MT已布局)</td>
+          <td>完成技术方案设计</td>
+          <td>发布MVP→3家客户试点</td>
+          <td>SaaS年费收入>¥1000万</td>
+          <td>客户续费率>80%</td>
+        </tr>
+        <tr>
+          <td><span class="tag-chip tag-orange">P1</span></td>
+          <td><strong>供应链成本管控</strong></td>
+          <td>上游价格(PPI +2.8%/钢价高位)</td>
+          <td>锁价60%钢材用量</td>
+          <td>国产替代电子元件降至30%</td>
+          <td>国产替代降至<20%</td>
+          <td>毛利率稳定在>40%</td>
+        </tr>
+        <tr>
+          <td><span class="tag-chip tag-orange">P1</span></td>
+          <td><strong>出口+一带一路</strong></td>
+          <td>宏观(出口+18.7%)+政策(西部大开发)</td>
+          <td>OIML认证启动</td>
+          <td>东南亚首单落地</td>
+          <td>海外营收>10%</td>
+          <td>海外客户>20家</td>
+        </tr>
+        <tr>
+          <td><span class="tag-chip tag-blue">P2</span></td>
+          <td><strong>碳计量称重</strong></td>
+          <td>政策(碳计量200+试点)+竞争(蓝海)</td>
+          <td>与山东/福建洽谈合作</td>
+          <td>样机+标准草案完成</td>
+          <td>首个商业项目落地</td>
+          <td>碳计量专利>3项</td>
+        </tr>
+        <tr>
+          <td><span class="tag-chip tag-blue">P2</span></td>
+          <td><strong>视觉/机器人生态联盟</strong></td>
+          <td>竞争(柯力传感器森林)+3C场景</td>
+          <td>确定联盟伙伴</td>
+          <td>联合方案发布</td>
+          <td>联合方案营收>¥2000万</td>
+          <td>生态伙伴>3家</td>
+        </tr>
+        <tr>
+          <td><span class="tag-chip tag-blue">P2</span></td>
+          <td><strong>行业BU化组织变革</strong></td>
+          <td>竞争(MT行业know-how壁垒)</td>
+          <td>3C/新能源行业BU设立</td>
+          <td>化工/物流行业BU设立</td>
+          <td>每个BU营收>¥5000万</td>
+          <td>行业标杆案例>10个</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="font-size:9px;color:var(--mt-slate-light);margin-top:6px;line-height:1.6;">
+    <strong>📎 建议方法论：</strong>以上8条建议基于本报告四个Tab的全部数据与洞察综合推导——宏观三驾马车(Tab1)定义需求方向、上游原材料与价格(Tab2)定义成本约束、省市政策机遇(Tab3)定义政策红利窗口、头部竞争格局(Tab4/5)定义竞争定位。每条建议均有明确的数据依据(标注"依据"段)、可操作行动项(标注"行动"段)、时间线与成功指标。
+  </div>
+
+</div>
+<div class="footer">
+  <span>数据来源：国家统计局 stats.gov.cn | 工信部 miit.gov.cn | 市场监管总局 samr.gov.cn | 中国物流与采购联合会 | Mysteel | 各省政府官网</span>
+  <span class="keywords">
+    <span class="tag-chip tag-green">设备更新周期</span>
+    <span class="tag-chip tag-red">AI+称重</span>
+    <span class="tag-chip tag-blue">动态称重</span>
+    <span class="tag-chip tag-orange">碳计量</span>
+    核心机遇关键词
+  </span>
+  <span>© 2026 工业称重业务战略研究 | CONFIDENTIAL</span>
+</div>
+
+</div><!-- /main-area -->
+
+</div><!-- /page -->
+
+<script>
+// ===== Register DataLabels Plugin =====
+Chart.register(ChartDataLabels);
+
+// ===== Tab Switching (Sidebar) =====
+function switchTab(tabId) {
+  document.querySelectorAll('.tab-content').forEach(function(el){ el.classList.remove('active'); });
+  document.querySelectorAll('.sidebar-item').forEach(function(el){ el.classList.remove('active'); });
+  document.getElementById(tabId).classList.add('active');
+  var tabMap = { 'tab-macro': 0, 'tab-materials': 1, 'tab-policy': 2, 'tab-compete': 3, 'tab-3c': 4, 'tab-strategy': 5 };
+  var items = document.querySelectorAll('.sidebar-item');
+  if (tabMap[tabId] !== undefined) items[tabMap[tabId]].classList.add('active');
+  setTimeout(function(){ Object.values(Chart.instances).forEach(function(c){ c.resize(); }); }, 50);
+}
+
+// ===== Global Chart Config =====
+Chart.defaults.color = '#5F6B6D';
+Chart.defaults.borderColor = '#E5EDE5';
+Chart.defaults.font.family = "Verdana, 'Microsoft YaHei', 'PingFang SC', sans-serif";
+Chart.defaults.font.size = 9;
+Chart.defaults.plugins.tooltip.backgroundColor = 'rgba(0,42,90,0.9)';
+Chart.defaults.plugins.tooltip.titleFont = { family: "Verdana, 'Microsoft YaHei', sans-serif", size: 11 };
+Chart.defaults.plugins.tooltip.bodyFont = { family: "Verdana, 'Microsoft YaHei', sans-serif", size: 10 };
+
+// Shared: only show datalabels plugin for specific charts (don't set globally)
+Chart.defaults.plugins.datalabels = false;
+
+// ===== Shared month labels =====
+var months12 = ['25/05','25/06','25/07','25/08','25/09','25/10','25/11','25/12','26/01','26/02','26/03','26/04'];
+
+// Helper: create datalabel config for bar charts
+function barDatalabels(opts) {
+  return {
+    anchor: (opts && opts.anchor) || 'end',
+    align: (opts && opts.align) || 'top',
+    color: '#1C2325',
+    font: { weight: 'bold', size: (opts && opts.fontSize) || 9 },
+    formatter: function(v) { return v; },
+    display: function(ctx) { return ctx.dataset.data[ctx.dataIndex] !== null; }
+  };
+}
+
+// Helper: create datalabel config for line charts (show only key points)
+function lineDatalabels(opts) {
+  return {
+    anchor: 'end',
+    align: 'top',
+    offset: 4,
+    color: '#1C2325',
+    font: { weight: 'bold', size: (opts && opts.fontSize) || 9 },
+    formatter: function(v) { return v; },
+    display: function(ctx) {
+      // Show label for first, last, and peak/valley points
+      var i = ctx.dataIndex;
+      var data = ctx.dataset.data;
+      var last = data.length - 1;
+      return i === 0 || i === last;
+    }
+  };
+}
+
+// ==========================================
+// TAB 1 CHARTS
+// ==========================================
+
+// Retail Sales Chart (line chart with datalabels on first & last)
+var retailData = [3.7, 2.0, 2.7, 2.1, 3.2, 2.9, 1.3, 0.9, 3.5, 4.6, 1.7, 0.2];
+new Chart(document.getElementById('retailChart'), {
+  type: 'line',
+  data: {
+    labels: months12,
+    datasets: [{
+      label: '社零消费同比增速 %',
+      data: retailData,
+      borderColor: '#56A410', backgroundColor: 'rgba(86,164,16,0.08)',
+      borderWidth: 2.5, tension: 0.3, pointRadius: 3, pointBackgroundColor: '#56A410',
+      fill: true,
+      datalabels: {
+        anchor: 'end', align: 'top', offset: 4, color: '#34620A',
+        font: { weight: 'bold', size: 9 },
+        formatter: function(v){ return v + '%'; },
+        display: function(ctx) { var i = ctx.dataIndex; return i === 0 || i === ctx.dataset.data.length - 1; }
+      }
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { position: 'bottom', labels: { boxWidth: 12, padding: 8 } },
+      datalabels: { display: false }
+    },
+    scales: {
+      y: { ticks: { callback: function(v){ return v + '%'; } }, grid: { color: '#E5EDE5' } },
+      x: { grid: { display: false } }
+    }
+  },
+  plugins: [ChartDataLabels]
+});
+
+// PMI Chart
+var pmiVals = [49.4, 49.5, 49.4, 49.4, 49.8, 49.0, 49.2, 50.1, 49.3, 49.0, 50.4, 50.3];
+var prodVals = [50.8, 50.6, 50.9, 50.8, 51.9, 49.7, 50.0, 51.7, 50.6, 49.6, 51.4, 51.5];
+var orderVals = [49.6, 49.5, 49.3, 49.5, 49.7, 48.8, 49.2, 50.8, 49.2, 48.6, 51.6, 50.6];
+new Chart(document.getElementById('pmiChart'), {
+  type: 'line',
+  data: {
+    labels: months12,
+    datasets: [
+      { label: '制造业PMI', data: pmiVals,
+        borderColor: '#004696', backgroundColor: 'rgba(0,70,150,0.06)', borderWidth: 2.5, tension: 0.3, pointRadius: 3, pointBackgroundColor: '#004696',
+        datalabels: { anchor: 'end', align: 'top', offset: 4, color: '#004696', font: { weight: 'bold', size: 9 }, formatter: function(v){ return v; }, display: function(ctx){ var i=ctx.dataIndex; return i===0 || i===ctx.dataset.data.length-1; } }
+      },
+      { label: '生产指数', data: prodVals,
+        borderColor: '#56A410', backgroundColor: 'rgba(86,164,16,0.04)', borderWidth: 1.5, tension: 0.3, pointRadius: 2, borderDash: [4,3],
+        datalabels: { display: false }
+      },
+      { label: '新订单指数', data: orderVals,
+        borderColor: '#E69400', backgroundColor: 'rgba(230,148,0,0.04)', borderWidth: 1.5, tension: 0.3, pointRadius: 2, borderDash: [4,3],
+        datalabels: { display: false }
+      }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { position: 'bottom', labels: { boxWidth: 12, padding: 8, font: {size:9} } },
+      datalabels: { display: false }
+    },
+    scales: {
+      y: { min: 47, max: 53, ticks: { stepSize: 1 }, grid: { color: '#E5EDE5' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+// FAI Chart (bar with datalabels)
+new Chart(document.getElementById('faiChart'), {
+  type: 'bar',
+  data: {
+    labels: ['总FAI', '第二产业', '制造业', '设备工器具\n购置', '基建投资\n(不含电力)', '房地产\n投资'],
+    datasets: [{
+      label: '累计同比 %',
+      data: [5.5, 3.9, 4.4, 11.5, 6.8, -13.7],
+      backgroundColor: ['#004696','#3399FF','#56A410','#E69400','#97CBFF','#FB8281'],
+      borderRadius: 4, borderSkipped: false,
+      datalabels: {
+        anchor: 'end', align: 'top', color: '#1C2325',
+        font: { weight: 'bold', size: 9 },
+        formatter: function(v){ return v + '%'; }
+      }
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false }, datalabels: { display: true } },
+    scales: {
+      y: { ticks: { callback: function(v){ return v + '%'; } }, grid: { color: '#E5EDE5' } },
+      x: { grid: { display: false }, ticks: { font: {size:8} } }
+    }
+  }
+});
+
+// Electricity Chart
+var elecData = [2.1, 3.2, 4.7, 5.0, 6.0, 6.4, 4.6, 5.9, null, 6.4, 2.3, 5.5];
+new Chart(document.getElementById('elecChart'), {
+  type: 'line',
+  data: {
+    labels: ['25/05','25/06','25/07','25/08','25/09','25/10','25/11','25/12','26/01','26/02','26/03','26/04'],
+    datasets: [{
+      label: '工业用电同比增速 %',
+      data: elecData,
+      borderColor: '#3599B8', backgroundColor: 'rgba(53,153,184,0.08)',
+      borderWidth: 2.5, tension: 0.3, pointRadius: 3, pointBackgroundColor: '#3599B8',
+      fill: true, spanGaps: true,
+      datalabels: {
+        anchor: 'end', align: 'top', offset: 4, color: '#28738A',
+        font: { weight: 'bold', size: 9 },
+        formatter: function(v){ return v + '%'; },
+        display: function(ctx){
+          var d = ctx.dataset.data; var i = ctx.dataIndex;
+          if (d[i] === null) return false;
+          return i === 0 || i === d.length - 1 || (i > 0 && d[i-1] === null);
+        }
+      }
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { position: 'bottom', labels: { boxWidth: 12 } }, datalabels: { display: false } },
+    scales: {
+      y: { ticks: { callback: function(v){ return v + '%'; } }, grid: { color: '#E5EDE5' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+// Real Estate Chart
+var reData = [-11.2, -12.0, -12.9, -13.9, -14.7, -15.9, -17.2, null, -11.1, -11.2, -13.7];
+new Chart(document.getElementById('reChart'), {
+  type: 'line',
+  data: {
+    labels: ['25/06','25/07','25/08','25/09','25/10','25/11','25/12','26/01','26/02','26/03','26/04'],
+    datasets: [{
+      label: '房地产投资累计同比 %',
+      data: reData,
+      borderColor: '#FB8281', backgroundColor: 'rgba(251,130,129,0.08)',
+      borderWidth: 2.5, tension: 0.3, pointRadius: 3, pointBackgroundColor: '#FB8281',
+      fill: true, spanGaps: true,
+      datalabels: {
+        anchor: 'end', align: 'bottom', offset: 4, color: '#BB4A4A',
+        font: { weight: 'bold', size: 9 },
+        formatter: function(v){ return v + '%'; },
+        display: function(ctx){
+          var d = ctx.dataset.data; var i = ctx.dataIndex;
+          if (d[i] === null) return false;
+          return i === 0 || i === d.length - 1 || (i > 0 && d[i-1] === null);
+        }
+      }
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { position: 'bottom', labels: { boxWidth: 12 } }, datalabels: { display: false } },
+    scales: {
+      y: { ticks: { callback: function(v){ return v + '%'; } }, grid: { color: '#E5EDE5' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+// Trade Chart
+var exportData = [3.1, 12.5, 12.6, 16.6, 7.9, -0.3, 4.3, 6.2, 15.7, 27.7, 12.7, 18.7];
+var importData = [-2.7, 11.2, 12.6, 12.2, 3.1, -2.4, -1.2, 1.1, 5.3, 20.1, 4.3, 12.2];
+new Chart(document.getElementById('tradeChart'), {
+  type: 'line',
+  data: {
+    labels: months12,
+    datasets: [
+      { label: '出口同比 %', data: exportData,
+        borderColor: '#56A410', backgroundColor: 'rgba(86,164,16,0.06)', borderWidth: 2.5, tension: 0.3, pointRadius: 3, pointBackgroundColor: '#56A410',
+        datalabels: { anchor: 'end', align: 'top', offset: 4, color: '#34620A', font: {weight:'bold',size:9}, formatter: function(v){return v+'%';}, display: function(ctx){var i=ctx.dataIndex; return i===0||i===ctx.dataset.data.length-1;} }
+      },
+      { label: '进口同比 %', data: importData,
+        borderColor: '#E69400', backgroundColor: 'rgba(230,148,0,0.04)', borderWidth: 1.5, tension: 0.3, pointRadius: 2, borderDash: [4,3],
+        datalabels: { display: false }
+      }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, padding: 8 } }, datalabels: { display: false } },
+    scales: {
+      y: { ticks: { callback: function(v){ return v + '%'; } }, grid: { color: '#E5EDE5' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+// Logistics Chart
+var logisData = [2.6, 5.5, 5.5, 5.5, 4.5, 2.9, 9.0, 2.6, null, 0.8, 4.7, 4.3];
+new Chart(document.getElementById('logisticsChart'), {
+  type: 'line',
+  data: {
+    labels: ['25/05','25/06','25/07','25/08','25/09','25/10','25/11','25/12','26/01','26/02','26/03','26/04'],
+    datasets: [{
+      label: '货运周转量同比 %',
+      data: logisData,
+      borderColor: '#4AC5BB', backgroundColor: 'rgba(74,197,187,0.08)',
+      borderWidth: 2.5, tension: 0.3, pointRadius: 3, pointBackgroundColor: '#4AC5BB',
+      fill: true, spanGaps: true,
+      datalabels: {
+        anchor: 'end', align: 'top', offset: 4, color: '#168980',
+        font: { weight: 'bold', size: 9 },
+        formatter: function(v){ return v + '%'; },
+        display: function(ctx){
+          var d = ctx.dataset.data; var i = ctx.dataIndex;
+          if (d[i] === null) return false;
+          return i === 0 || i === d.length - 1 || (i > 0 && d[i-1] === null);
+        }
+      }
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { position: 'bottom', labels: { boxWidth: 12 } }, datalabels: { display: false } },
+    scales: {
+      y: { ticks: { callback: function(v){ return v + '%'; } }, grid: { color: '#E5EDE5' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+// ==========================================
+// TAB 2 CHARTS
+// ==========================================
+
+// PPI Sector Chart (bar with datalabels)
+new Chart(document.getElementById('ppiSectorChart'), {
+  type: 'bar',
+  data: {
+    labels: ['有色金属\n采选', '石油/\n天然气', '黑色金属\n冶炼', '有色金属\n冶炼', '化学原料\n制品', '橡胶/\n塑料', '煤炭\n采选', '非金属\n矿物', '通用\n设备', '黑色金属\n采选', '专用\n设备'],
+    datasets: [{
+      label: '同比涨幅 %',
+      data: [38.9, 28.6, 22.5, 22.5, 14.2, 8.9, 3.1, -5.5, -1.0, 1.3, -0.9],
+      backgroundColor: [
+        '#BB4A4A','#BB4A4A','#BB4A4A','#FB8281','#E69400','#F4D25A','#97CBFF','#56A410','#7F898A','#97CBFF','#7F898A'
+      ],
+      borderRadius: 4, borderSkipped: false,
+      datalabels: {
+        anchor: 'end', align: 'top', color: '#1C2325',
+        font: { weight: 'bold', size: 9 },
+        formatter: function(v){ return v + '%'; }
+      }
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false }, datalabels: { display: true } },
+    scales: {
+      y: { ticks: { callback: function(v){ return v + '%'; } }, grid: { color: '#E5EDE5' } },
+      x: { ticks: { font: {size:8} }, grid: { display: false } }
+    }
+  }
+});
+
+// Steel Price Chart (dual axis: absolute price + YoY%)
+new Chart(document.getElementById('steelChart'), {
+  type: 'line',
+  data: {
+    labels: ['25/4/29','25/5/6','25/5/7','25/5/8','25/5/9','25/5/12','25/5/13','25/5/14','25/5/15'],
+    datasets: [
+      {
+        label: '钢材价格（元/吨）',
+        data: [3250, 3230, 3260, 3240, 3210, 3270, 3250, 3310, 3290],
+        borderColor: '#E69400', backgroundColor: 'rgba(230,148,0,0.06)',
+        borderWidth: 2.5, tension: 0.3, pointRadius: 4, pointBackgroundColor: '#E69400',
+        fill: false, yAxisID: 'y',
+        datalabels: {
+          anchor: 'end', align: 'top', offset: 6, color: '#B59525',
+          font: { weight: 'bold', size: 9 },
+          formatter: function(v){ return v; },
+          display: function(ctx){ var i = ctx.dataIndex; return i === 0 || i === ctx.dataset.data.length - 1; }
+        }
+      },
+      {
+        label: '钢材价格同比 %（右轴）',
+        data: [-15.6, -17.0, -16.0, -15.6, -16.4, -14.6, -15.6, -12.9, -13.2],
+        borderColor: '#BB4A4A', backgroundColor: 'rgba(187,74,74,0.04)',
+        borderWidth: 1.8, tension: 0.3, pointRadius: 3, pointBackgroundColor: '#BB4A4A',
+        borderDash: [5,3], fill: false, yAxisID: 'y1',
+        datalabels: {
+          anchor: 'end', align: 'top', offset: 6, color: '#BB4A4A',
+          font: { weight: 'bold', size: 9 },
+          formatter: function(v){ return v + '%'; },
+          display: function(ctx){ var i = ctx.dataIndex; return i === 0 || i === ctx.dataset.data.length - 1; }
+        }
+      }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { position: 'bottom', labels: { boxWidth: 12, padding: 8, font: {size:9} } },
+      datalabels: { display: false },
+      tooltip: {
+        callbacks: {
+          label: function(ctx) {
+            if (ctx.datasetIndex === 0) return '价格: ' + ctx.raw + ' 元/吨';
+            return '同比: ' + ctx.raw + '%';
+          }
+        }
+      }
+    },
+    scales: {
+      y: {
+        type: 'linear', position: 'left',
+        min: 3050, max: 3450,
+        title: { display: true, text: '元/吨', color: '#E69400', font: {size:10} },
+        ticks: { callback: function(v){ return v; }, color: '#E69400' },
+        grid: { color: '#E5EDE5' }
+      },
+      y1: {
+        type: 'linear', position: 'right',
+        min: -22, max: -8,
+        title: { display: true, text: '同比 %', color: '#BB4A4A', font: {size:10} },
+        ticks: { callback: function(v){ return v + '%'; }, color: '#BB4A4A' },
+        grid: { drawOnChartArea: false }
+      },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+// Demand Heatmap (horizontal bar with datalabels)
+new Chart(document.getElementById('demandChart'), {
+  type: 'bar',
+  data: {
+    labels: ['新能源\n锂电称重', '物流DWS\n动态称重', '智能检重\n产线配套', '港口/\n物流地磅', '汽车制造\n在线称重', '钢铁化工\n防爆称重', '食品包装\n定量称重', '工程机械\n配套称重', '建筑搅拌\n站称重'],
+    datasets: [{
+      label: '需求景气指数',
+      data: [92, 88, 85, 82, 78, 72, 70, 68, 42],
+      backgroundColor: [
+        '#BB4A4A','#BB4A4A','#FB8281','#FB8281','#E69400','#E69400','#97CBFF','#97CBFF','#56A410'
+      ],
+      borderRadius: 4, borderSkipped: false,
+      datalabels: {
+        anchor: 'end', align: 'right', color: '#1C2325',
+        font: { weight: 'bold', size: 9 },
+        formatter: function(v){ return v; }
+      }
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false }, datalabels: { display: true } },
+    scales: {
+      x: { max: 100, ticks: { callback: function(v){ return v; } }, grid: { color: '#E5EDE5' } },
+      y: { ticks: { font: {size:9} }, grid: { display: false } }
+    }
+  }
+});
+
+// Initialize — resize all charts after render
+window.addEventListener('load', function(){
+  setTimeout(function(){ Object.values(Chart.instances).forEach(function(c){ c.resize(); }); }, 150);
+});
+</script>
+
+</body>
+</html>
