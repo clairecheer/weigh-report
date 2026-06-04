@@ -850,13 +850,13 @@ body {
   </div>
 
   <!-- Steel Price Chart with YoY -->
-  <div class="subsection-title">📉 钢材价格走势 —— 绝对价格与同比变化（2025年4月-5月，元/吨）</div>
+  <div class="subsection-title">📉 钢材价格走势 —— 绝对价格与同比变化（2025年4月-2026年5月，元/吨）</div>
   <div class="chart-row">
     <div class="chart-card full-width">
       <div class="chart-wrap">
         <canvas id="steelChart"></canvas>
       </div>
-      <div class="chart-note">钢价从3,210→3,413元/吨波动上行，同比降幅持续收窄（从-16.4%→-13.2%）→ 价格中枢上移趋势确立。<span class="warn-text" style="color:var(--mt-orange);">称重设备制造成本承压，需关注供应链管理</span>；同时钢铁贸易活跃→港口物流地磅需求上升。</div>
+      <div class="chart-note">钢价从3,240→3,413元/吨波动上行，同比从-15.6%转为+4.4%（连续两月为正）→ 价格中枢上移趋势确立。<span class="warn-text" style="color:var(--mt-orange);">称重设备制造成本承压，需关注供应链管理</span>；同时钢铁贸易活跃→港口物流地磅需求上升。</div>
     </div>
   </div>
 
@@ -867,7 +867,7 @@ body {
       <div class="ind-name">🔩 钢铁行业</div>
       <div class="ind-data">
         <span class="ind-price" style="color:var(--mt-red);">3,413 元/吨</span>
-        <span class="ind-change" style="color:var(--mt-red);">▲ 钢价中枢上移</span><br>
+        <span class="ind-change" style="color:var(--mt-red);">▲ 同比+4.4%（转正）</span><br>
         黑色冶炼PPI +22.5%<br>
         钢材出口+4%<br>
         <span style="color:var(--mt-dark-green);">→ 港口地磅 · 钢厂称重系统</span>
@@ -2371,11 +2371,11 @@ new Chart(document.getElementById('ppiSectorChart'), {
 new Chart(document.getElementById('steelChart'), {
   type: 'line',
   data: {
-    labels: ['25/4/29','25/5/6','25/5/7','25/5/8','25/5/9','25/5/12','25/5/13','25/5/14','25/5/15'],
+    labels: ['25/4/30','25/5/30','25/6/30','25/7/31','25/8/29','25/9/30','25/10/31','25/11/28','25/12/31','26/1/30','26/2/28','26/3/31','26/4/30','26/5/21'],
     datasets: [
       {
         label: '钢材价格（元/吨）',
-        data: [3250, 3230, 3260, 3240, 3210, 3270, 3250, 3310, 3290],
+        data: [3240, 3160, 3190, 3400, 3373, 3323, 3323, 3283, 3262, 3260, 3233, 3272, 3422, 3413],
         borderColor: '#E69400', backgroundColor: 'rgba(230,148,0,0.06)',
         borderWidth: 2.5, tension: 0.3, pointRadius: 4, pointBackgroundColor: '#E69400',
         fill: false, yAxisID: 'y',
@@ -2388,7 +2388,7 @@ new Chart(document.getElementById('steelChart'), {
       },
       {
         label: '钢材价格同比 %（右轴）',
-        data: [-15.6, -17.0, -16.0, -15.6, -16.4, -14.6, -15.6, -12.9, -13.2],
+        data: [-15.6, -17.9, -14.2, -0.7, 5.4, -8.7, -5.9, -4.6, -4.6, -5.0, -5.2, -2.0, 5.6, 4.4],
         borderColor: '#BB4A4A', backgroundColor: 'rgba(187,74,74,0.04)',
         borderWidth: 1.8, tension: 0.3, pointRadius: 3, pointBackgroundColor: '#BB4A4A',
         borderDash: [5,3], fill: false, yAxisID: 'y1',
@@ -2418,14 +2418,14 @@ new Chart(document.getElementById('steelChart'), {
     scales: {
       y: {
         type: 'linear', position: 'left',
-        min: 3050, max: 3450,
+        min: 3100, max: 3550,
         title: { display: true, text: '元/吨', color: '#E69400', font: {size:10} },
         ticks: { callback: function(v){ return v; }, color: '#E69400' },
         grid: { color: '#E5EDE5' }
       },
       y1: {
         type: 'linear', position: 'right',
-        min: -22, max: -8,
+        min: -20, max: 10,
         title: { display: true, text: '同比 %', color: '#BB4A4A', font: {size:10} },
         ticks: { callback: function(v){ return v + '%'; }, color: '#BB4A4A' },
         grid: { drawOnChartArea: false }
