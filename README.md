@@ -4,7 +4,7 @@
 
 ## 在线报告
 
-👉 **[查看在线报告](https://tzusu_chiao.gitee.io/weigh-report/)**
+👉 **[查看在线报告](https://tzusu_chiao.github.io/weigh-report/)**
 
 ## 数据维度
 
