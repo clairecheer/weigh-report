@@ -3,13 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>梅特勒托利多中国工业称重 · 十五五战略增长路线图</title>
+<title>梅特勒托利多中国工业称重 · 十五五战略增长路线图 v5.0</title>
 <style>
 :root{--blue:#003B71;--gold:#F2A900;--red:#C8102E;--green:#2E8B57;--bg:#F8FAFC;--w:#fff;--t:#1E293B;--t2:#475569;--t3:#64748B;--b:#E2E8F0}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:Inter,'Noto Sans SC',-apple-system,sans-serif;color:var(--t);background:#E8ECF1;line-height:1.6;-webkit-font-smoothing:antialiased}
 
-/* One Page - single viewport */
 .onepage{max-width:1200px;margin:0 auto;background:var(--w);box-shadow:0 20px 50px rgba(0,0,0,0.1)}
 
 /* Hero */
@@ -19,6 +18,16 @@ body{font-family:Inter,'Noto Sans SC',-apple-system,sans-serif;color:var(--t);ba
 .hero-sub{font-size:14px;opacity:.75;max-width:500px;line-height:1.7;margin-top:12px}
 .hero-badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:100px;padding:6px 16px;font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px}
 .hero-meta{font-size:11px;opacity:.5;margin-top:24px}
+
+/* Macro context bar */
+.macro-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-bottom:1px solid var(--b);background:linear-gradient(135deg,#FFFDF5,#FFFBEB)}
+.macro-item{text-align:center;padding:14px 10px;border-right:1px solid var(--b)}
+.macro-item:last-child{border-right:none}
+.macro-item .mv{font-size:18px;font-weight:900;color:var(--blue)}
+.macro-item .mv.gold{color:var(--gold)}
+.macro-item .mv.red{color:var(--red)}
+.macro-item .mv.green{color:var(--green)}
+.macro-item .ml{font-size:10px;color:var(--t3);margin-top:2px}
 
 /* Main grid */
 .main-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:600px}
@@ -68,9 +77,22 @@ body{font-family:Inter,'Noto Sans SC',-apple-system,sans-serif;color:var(--t);ba
 .kpi .val.red{color:var(--red)}
 .kpi .lbl{font-size:10px;color:var(--t3);margin-top:2px}
 
+/* New: catalyst row */
+.catalyst-row{padding:20px 44px;border-top:1px solid var(--b);background:var(--bg)}
+.catalyst-row h3{font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--red);text-transform:uppercase;margin-bottom:12px}
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.cat-item{font-size:11px;color:var(--t2);line-height:1.6;padding:12px;background:var(--w);border-radius:8px;border:1px solid var(--b)}
+.cat-item strong{color:var(--blue);display:block;margin-bottom:3px;font-size:12px}
+
 .footer{display:flex;justify-content:space-between;padding:16px 44px;font-size:10px;color:var(--t3);border-top:1px solid var(--b);flex-wrap:wrap;gap:8px}
 
-@media(max-width:768px){.main-grid{grid-template-columns:1fr}.scqa{border-right:none;border-bottom:1px solid var(--b)}.tl-row{grid-template-columns:1fr}.kpi-row{grid-template-columns:repeat(2,1fr)}.hero{padding:32px 24px}.hero h1{font-size:24px}}
+/* New: 新宏观背景 pill */
+.macro-pill{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:4px;font-size:10px;font-weight:600;margin-right:4px}
+.macro-pill.up{background:#F0FDF4;color:#2E8B57}
+.macro-pill.warn{background:#FFF5F5;color:#C8102E}
+.macro-pill.info{background:#EFF6FF;color:#003B71}
+
+@media(max-width:768px){.main-grid{grid-template-columns:1fr}.scqa{border-right:none;border-bottom:1px solid var(--b)}.tl-row{grid-template-columns:1fr}.kpi-row{grid-template-columns:repeat(2,1fr)}.macro-bar{grid-template-columns:repeat(2,1fr)}.cat-grid{grid-template-columns:1fr}.hero{padding:32px 24px}.hero h1{font-size:24px}}
 @media print{body{background:white}.onepage{box-shadow:none;max-width:100%}@page{size:A3 landscape;margin:0}}
 </style>
 </head>
@@ -80,11 +102,23 @@ body{font-family:Inter,'Noto Sans SC',-apple-system,sans-serif;color:var(--t);ba
 <!-- HERO -->
 <div class="hero">
   <div>
-    <div class="hero-badge">Executive Summary · 十五五 Strategic Roadmap</div>
+    <div class="hero-badge">Executive Summary · 十五五 Strategic Roadmap v5.0</div>
     <h1>梅特勒托利多中国<span>工业称重</span>业务<br>2026–2030 增长路线图</h1>
-    <div class="hero-sub">从"化工基本盘"向"电池+半导体+制药"三大新支柱转型。<br>五年投入 ¥10亿 → 撬动增量营收 ¥16亿 → ROI 1.5倍 → 回收期 4-5年。2024基线 ¥19亿 → 2030目标 ¥36-38亿。</div>
+    <div class="hero-sub">从"化工基本盘"向"电池+半导体+制药"三大新支柱转型。<br>
+    汇丰/EIU交叉验证显示：中国GDP 2026年~4.9%、供应链回流加速、AI+电气化双轮驱动制造业升级。<br>
+    中美关税共识达成（贸易理事会机制+$300亿互降关税），外部不确定性显著下降。<br>
+    五年投入 ¥10亿 → 撬动增量营收 ¥16亿 → ROI 1.5倍 → 回收期 4-5年。<br>
+    2024基线 ¥19亿 → 2030目标 ¥36-38亿（人民币汇率走强至6.82，提升美元计价回报）。</div>
   </div>
-  <div class="hero-meta">MT中国工业称重<br>2024基线 ¥19亿<br>2030目标 ¥36-38亿<br>2026.06 · Confidential</div>
+  <div class="hero-meta">MT中国工业称重<br>2024基线 ¥19亿<br>2030目标 ¥36-38亿<br>2026.06 · v5.0 · Confidential<br>数据源：MT 10-K, HSBC, EIU, 盛松成, 合远基金</div>
+</div>
+
+<!-- MACRO CONTEXT BAR (NEW) -->
+<div class="macro-bar">
+  <div class="macro-item"><div class="mv green">~4.9%</div><div class="ml">中国2026 GDP增速(EIU/HSBC)</div></div>
+  <div class="macro-item"><div class="mv gold">6.82</div><div class="ml">USD/CNY 2026E (EIU, 人民币走强)</div></div>
+  <div class="macro-item"><div class="mv red">回流</div><div class="ml">供应链加速回流中国(HSBC确认)</div></div>
+  <div class="macro-item"><div class="mv">双轮</div><div class="ml">AI+电气化驱动制造业投资(合远)</div></div>
 </div>
 
 <!-- MAIN GRID -->
@@ -92,22 +126,22 @@ body{font-family:Inter,'Noto Sans SC',-apple-system,sans-serif;color:var(--t);ba
 
 <!-- LEFT: SCQA -->
 <div class="scqa">
-  <h2>SCQA 战略叙事</h2>
+  <h2>SCQA 战略叙事（融合HSBC/EIU/盛松成/合远最新研判）</h2>
   <div class="scqa-block S">
-    <h3>S · Situation — 三股力量重塑需求地图</h3>
-    <p>"十五五"将生物医药、新能源、半导体列为新兴支柱产业。中国工业称重市场从2024年~¥32亿增至2030年~¥55亿（CAGR 6.8%）。电池出货800GWh、半导体材料国产化率从35%→55%、制药连续制造兴起——称重是这些行业制造工序中的"必选项"而非"可选项"。</p>
+    <h3>S · Situation — 四股力量重塑需求地图</h3>
+    <p><strong>①政策驱动：</strong>"十五五"将生物医药、新能源、半导体列为新兴支柱产业；EIU指出"数字中国"战略独立成章、AI全生命周期风险管理、反内卷立法——品质优先趋势利好MT等高端品牌。<strong>②产业趋势：</strong>合远基金指出电气化与AI是两大确定性产业趋势——全球电力需求2025-30年均增量为2015-25年的150%，变压器交期超36个月，电力设备严重短缺→制造业产能扩张→称重需求激增。<strong>③供应链重构：</strong>HSBC确认消费品企业从越南/泰国逆向回流中国（海外无法匹配供应链配套和劳动力），产业链回流带动国内制造业投资。<strong>④市场规模：</strong>中国工业称重市场从2024年~¥32亿增至2030年~¥55亿（CAGR 6.8%）。电池出货800GWh、半导体材料国产化率从35%→55%、制药连续制造兴起——称重是制造工序中的"必选项"。</p>
   </div>
   <div class="scqa-block C">
-    <h3>C · Complication — 传统基本盘面临结构性压力</h3>
-    <p>MT中国工业称重约¥10亿年营收中，化工/一般制造占40-50%。该领域正面临三重压力：①产能过剩与"价格内卷"→客户采购向低价国产倾斜；②国产替代政策加速→中航电测/柯力传感市占率持续提升；③增量有限（CAGR仅3-5%）→"守成"意味着份额被侵蚀。</p>
+    <h3>C · Complication — 传统基本盘压力加剧，但宏观环境边际改善</h3>
+    <p>MT中国工业称重约¥10亿年营收中，化工/一般制造占40-50%。该领域面临三重压力：①产能过剩与"价格内卷"→客户采购向低价国产倾斜；②国产替代政策加速→中航电测/柯力传感市占率持续提升；③增量有限（CAGR仅3-5%）。<br><strong>但宏观条件正在改善：</strong>①中美关税共识达成——贸易理事会圈定$300亿等价商品互降关税，无制造业回流意愿的行业关税降至最惠国水平(~3%)，外部不确定性显著下降；②PPI已转正(HSBC数据)，工业企业利润率明显提升——2026年4月部分能源企业利润翻几倍；③真实FDI从净流出转为净流入(2025年)；④人民币走强(EIU预测6.82)改善MT中国以美元计价的全球报表贡献。</p>
   </div>
   <div class="scqa-block Q">
     <h3>Q · Question — 核心决策问题</h3>
-    <p>MT中国工业称重应将有限资源押注哪几个"十五五"高增长行业？每个行业需要什么产品组合、如何竞争、预期回报多少？</p>
+    <p>MT中国工业称重应将有限资源押注哪几个"十五五"高增长行业？每个行业需要什么产品组合、如何竞争、预期回报多少？电气化与AI双轮驱动下，MT的称重产品如何成为"铲子型"基础设施供应商？</p>
   </div>
   <div class="scqa-block A">
     <h3>A · Answer — 三大支柱 + 一个压舱石 + 一个期权</h3>
-    <p><strong>电池称重</strong>（五年增量¥2.8亿，CAGR 25-35%）——注液称重+涂布面密度+电芯配组，2027年固态电池量产是关键催化剂。<br><strong>半导体称重</strong>（五年增量¥1.6亿，CAGR 20-30%）——ATEX防爆+洁净室精密称重，国内几乎无竞争对手。<br><strong>制药称重</strong>（五年增量¥3.5亿，CAGR 12-18%）——GMP连续制造，MT品牌壁垒最高的领域。<br><strong>化工数字化</strong>（五年增量¥6亿）——存量升级现金牛，为前三大支柱提供资金支持。</p>
+    <p><strong>🔋 电池称重</strong>（五年增量¥2.8亿，CAGR 25-35%）——注液称重+涂布面密度+电芯配组，2027年固态电池量产、EIU确认"新一代电池"为十五五新增重点技术方向。电气化浪潮下全球电池产能扩张加速。<br><strong>⚗️ 半导体称重</strong>（五年增量¥1.6亿，CAGR 20-30%）——ATEX防爆+洁净室精密称重，供应链回流+国产化加速创造窗口期。EIU确认中国半导体材料国产化目标明确。<br><strong>💊 制药称重</strong>（五年增量¥3.5亿，CAGR 12-18%）——GMP连续制造，EIU确认"药物开发和生物技术"为十五五新增重点方向，合远数据显示创新药BD金额同比暴增250%+，药企研发投入加速。<br><strong>🏭 化工数字化</strong>（五年增量¥6亿）——存量升级现金牛，为前三大支柱提供资金支持。盛松成指出"六网"新基建投资规模巨大。</p>
   </div>
 </div>
 
@@ -117,30 +151,41 @@ body{font-family:Inter,'Noto Sans SC',-apple-system,sans-serif;color:var(--t);ba
 
   <div class="pillar p1">
     <div class="phead"><span class="ptitle">🔋 新能源电池制造 🥇</span><span class="pnum r">¥2.8亿</span></div>
-    <div class="pdetail">五年概率加权增量营收 · 投入¥3.1-5.2亿 · 单线称重价值~¥750万 · 90-170条新产线 · 关键：2027固态电池量产窗口 · 对手：赛多利斯/国产(赞维)</div>
+    <div class="pdetail">五年概率加权增量营收 · 投入¥3.1-5.2亿 · 单线称重价值~¥750万 · 90-170条新产线 · 电气化全球加速(合远:电力设备出口增速35%+) · 关键催化剂：2027固态电池量产+EIU确认"新一代电池"为十五五新增重点 · 对手：赛多利斯/国产(赞维)</div>
   </div>
 
   <div class="pillar p2">
     <div class="phead"><span class="ptitle">⚗️ 半导体高纯化学品 🥈</span><span class="pnum g">¥1.6亿</span></div>
-    <div class="pdetail">五年增量营收 · 投入¥1.5-2.8亿 · 单线~¥700万 · 25-45条高端产线 · 差异化：唯一ATEX防爆+洁净室+本地化组合 · 对手：Minebea Intec(缺本地化)</div>
+    <div class="pdetail">五年增量营收 · 投入¥1.5-2.8亿 · 单线~¥700万 · 25-45条高端产线 · 供应链回流+国产化55%目标加速 · EIU确认半导体为"卡脖子"攻关核心 · 差异化：唯一ATEX防爆+洁净室+本地化组合 · 对手：Minebea Intec(缺本地化)</div>
   </div>
 
   <div class="pillar p3">
     <div class="phead"><span class="ptitle">💊 制药GMP/连续制造 🥉</span><span class="pnum">¥3.5亿</span></div>
-    <div class="pdetail">五年增量营收 · 投入¥1.5-2.7亿 · 单线~¥650万 · 40-70条新生物药产线 · 优势：制药称重品牌壁垒极高 · 对手：中航电测(中低端)</div>
+    <div class="pdetail">五年增量营收 · 投入¥1.5-2.7亿 · 单线~¥650万 · 40-70条新生物药产线 · 合远数据:创新药BD金额同比+250% · 阿斯利康5-10年$12亿在华投资 · EIU确认药物开发为十五五新增重点 · 优势：制药称重品牌壁垒极高</div>
   </div>
 
   <div class="pillar">
     <div class="phead"><span class="ptitle">🏭 化工数字化转型 P4</span><span class="pnum">¥6.0亿</span></div>
-    <div class="pdetail">压舱石 · 投入¥1.1-2.1亿 · 1,000家先进级智能工厂目标 · 存量替代逻辑 · ROI最高(4×)</div>
+    <div class="pdetail">压舱石 · 投入¥1.1-2.1亿 · 1,000家先进级智能工厂目标 · 盛松成"六网"新基建(算力网+新一代通信网等) · 存量替代逻辑 · ROI最高(4×) · PPI转正利好工业企业设备投资</div>
   </div>
 
   <div class="pillar">
     <div class="phead"><span class="ptitle">🧬 生物制造 P5</span><span class="pnum">¥2.0亿</span></div>
-    <div class="pdetail">培育期权 · 投入¥0.7-1.6亿 · 发酵罐称重+配料 · 2030后爆发</div>
+    <div class="pdetail">培育期权 · 投入¥0.7-1.6亿 · 发酵罐称重+配料 · EIU确认"生物技术"为十五五新增重点方向 · 中国发酵产量全球70%+ · 2030后爆发</div>
   </div>
 </div>
 
+</div>
+
+<!-- CATALYST ROW (NEW) -->
+<div class="catalyst-row">
+  <h3>🔑 关键催化因素与宏观顺风（2026新增研判）</h3>
+  <div class="cat-grid">
+    <div class="cat-item"><strong>🇨🇳🇺🇸 中美关税共识</strong>贸易理事会圈定$300亿等价商品互降关税；无制造业回流意愿行业关税降至MFN水平(~3%)；习近平2026年9月访美可能出台更多实质性成果。→ 外部不确定性大幅下降，设备采购决策加速</div>
+    <div class="cat-item"><strong>⚡ 全球电气化浪潮</strong>全球电力需求2025-30年均增量为前十年150%；美国大型变压器交期>36个月；1600GW新能源+600GW储能等待并网。→ 电池/电力设备产能扩张→称重需求持续旺盛</div>
+    <div class="cat-item"><strong>🏭 供应链回流中国</strong>HSBC确认消费品企业从越南/泰国逆向转移产能回中国（海外无法匹配供应链+劳动力）；广东经济增速2026年明显回升。→ 国内制造业投资增加→称重设备需求扩大</div>
+    <div class="cat-item"><strong>💰 宏观金融条件改善</strong>PPI已转正→工业企业利润率改善(2026年4月明显)；人民币走强至6.82(EIU预测)→MT中国美元报表贡献提升；真实FDI从净流出转净流入(2025年)。→ 客户设备投资能力和意愿提升</div>
+  </div>
 </div>
 
 <!-- TIMELINE -->
@@ -151,10 +196,10 @@ body{font-family:Inter,'Noto Sans SC',-apple-system,sans-serif;color:var(--t);ba
       <h4>🌱 2026 种子期</h4>
       <div class="tldate">投入~¥1.5亿 · 收入~¥0.3亿</div>
       <ul>
-        <li>进入CATL/BYD/中航锂电供应商名录</li>
-        <li>开发"硫化物防爆称重标准方案包"</li>
-        <li>与晶瑞电材/江化微建半导体称重样板</li>
-        <li>Top10药企连续制造称重试点3-5家</li>
+        <li>进入CATL/BYD/中航锂电供应商名录（利用大众供应链标准切入国轩）</li>
+        <li>开发"硫化物防爆称重标准方案包"（EIU:固态电池为十五五新增重点）</li>
+        <li>与晶瑞电材/江化微建半导体称重样板（临港政策2026.08到期前锁定）</li>
+        <li>Top10药企连续制造称重试点3-5家（合远:创新药BD爆发驱动产能扩张）</li>
         <li>常州新产线可行性研究完成</li>
       </ul>
     </div>
@@ -162,10 +207,10 @@ body{font-family:Inter,'Noto Sans SC',-apple-system,sans-serif;color:var(--t);ba
       <h4>📈 2027-28 成长期</h4>
       <div class="tldate">投入~¥2.5亿/年 · 收入拐点2028</div>
       <ul>
-        <li>获首批固态电池产线称重订单</li>
-        <li>半导体防爆称重方案行业标配化</li>
-        <li>制药连续制造称重方案量产交付</li>
-        <li>化工智能称重覆盖100+家工厂</li>
+        <li>获首批固态电池产线称重订单（电气化浪潮+电池产能全球扩张）</li>
+        <li>半导体防爆称重方案行业标配化（供应链国产化55%目标驱动）</li>
+        <li>制药连续制造称重方案量产交付（阿斯利康$12亿在华投资等外资研发落地）</li>
+        <li>化工智能称重覆盖100+家工厂（盛松成"六网"新基建拉动）</li>
         <li>服务网络扩展至300人/50+城市</li>
       </ul>
     </div>
@@ -173,11 +218,11 @@ body{font-family:Inter,'Noto Sans SC',-apple-system,sans-serif;color:var(--t);ba
       <h4>🎯 2029-30 收获期</h4>
       <div class="tldate">投入~¥2.0亿/年 · 收入~¥6亿/年</div>
       <ul>
-        <li>电池称重中国份额25%+</li>
-        <li>半导体材料称重方案成行业标配</li>
-        <li>制药称重高端市场巩固40%+份额</li>
-        <li>化工数字化方案覆盖200+家</li>
-        <li>2030年化工业称重营收~¥18亿</li>
+        <li>电池称重中国份额25%+（电气化全球加速→中国电池产能持续扩张）</li>
+        <li>半导体材料称重方案成行业标配（国产化率突破55%+）</li>
+        <li>制药称重高端市场巩固40%+份额（EIU:医疗健康支出2030年达GDP 5.6%）</li>
+        <li>化工数字化方案覆盖200+家（EIU:AI广泛渗透工业生产和教育）</li>
+        <li>2030年化工业称重营收~¥18亿，总营收¥28.6亿（基线）/¥34-36亿（乐观）</li>
       </ul>
     </div>
   </div>
@@ -193,8 +238,8 @@ body{font-family:Inter,'Noto Sans SC',-apple-system,sans-serif;color:var(--t);ba
 </div>
 
 <div class="footer">
-  <div>© 2026 MT China Industrial Weighing Strategy · v3.0 · SCQA Framework</div>
-  <div>数据截止 2026.06 · 汇率 7.20 · 来源标注见详细论证版</div>
+  <div>© 2026 MT China Industrial Weighing Strategy · v5.0 · SCQA Framework · 融合HSBC/EIU/盛松成/合远基金最新研判</div>
+  <div>数据截止 2026.06 · 汇率 USD/CNY 6.82 (EIU 2026预测) · 来源标注见详细论证版</div>
   <div>Confidential · For Executive Decision-Making Only</div>
 </div>
 
