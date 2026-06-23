@@ -20,6 +20,9 @@ body{font-family:Inter,'Noto Sans SC',system-ui,sans-serif;background:linear-gra
 .link-badge{display:inline-block;padding:3px 10px;border-radius:100px;font-size:10px;font-weight:700;margin-left:auto;flex-shrink:0}
 .badge-primary{background:#FFE4E6;color:#C8102E}
 .badge-exec{background:#FFF3D0;color:#B8860B}
+.badge-macro{background:#E0F0FF;color:#004696}
+.divider{display:flex;align-items:center;gap:12px;color:var(--t3);font-size:12px;margin:8px 0}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--e)}
 .footer{margin-top:32px;font-size:12px;color:var(--t3)}
 .footer a{color:var(--b)}
 </style>
@@ -38,6 +41,12 @@ body{font-family:Inter,'Noto Sans SC',system-ui,sans-serif;background:linear-gra
       <div class="link-icon">📄</div>
       <div class="link-text"><h3>总经理精要：One Page</h3><p>核心结论 · 投资优先级 · KPI · 三阶段路线图</p></div>
       <div class="link-badge badge-exec">高管摘要</div>
+    </a>
+    <div class="divider">更多工具</div>
+    <a href="macro/" class="link-card">
+      <div class="link-icon">📈</div>
+      <div class="link-text"><h3>宏观经济看板</h3><p>PMI · PPI · 钢铁价格 · 固定资产投资 · 工业用电 · 物流等14项指标</p></div>
+      <div class="link-badge badge-macro">数据看板</div>
     </a>
   </div>
   <div class="footer">
