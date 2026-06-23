@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>MT中国工业称重·十五五战略增长路线图</title>
+<style>
+:root{--b:#003B71;--g:#F2A900;--r:#C8102E;--n:#2E8B57;--t:#1E293B;--t2:#334155;--t3:#64748B;--bg:#F8FAFC;--w:#fff;--e:#CBD5E1}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,'Noto Sans SC',system-ui,sans-serif;background:#CBD5E1;color:var(--t);line-height:1.65;font-size:14px}
+.slides{max-width:1280px;margin:0 auto;padding:40px 20px;display:flex;flex-direction:column;gap:44px}
+.slide{background:var(--w);border-radius:14px;box-shadow:0 8px 28px rgba(0,0,0,0.07);overflow:hidden}
+.slide-header{padding:32px 52px 20px;border-bottom:1px solid var(--e);display:flex;align-items:center;gap:14px}
+.slide-num{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;color:white;flex-shrink:0}
+.sn1{background:var(--b)}.sn2{background:var(--r)}.sn3{background:var(--g)}.sn4{background:var(--n)}
+.slide-header h2{font-size:23px;font-weight:800;color:var(--b)}
+.slide-body{padding:32px 52px 36px}
+.slide-foot{padding:12px 52px;border-top:1px solid var(--e);font-size:10px;color:var(--t3);display:flex;justify-content:space-between}
+
+.tslide{background:linear-gradient(135deg,#001F3F,#003B71,#004E8C);color:white;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:80px 60px;min-height:480px}
+.tslide h1{font-size:40px;font-weight:900;line-height:1.2;max-width:850px}
+.tslide h1 span{color:var(--g)}
+.tslide .sub{font-size:16px;opacity:.8;max-width:700px;margin-top:14px}
+.tslide .pretag{display:inline-block;border:1px solid rgba(255,255,255,.18);border-radius:100px;padding:5px 18px;font-size:11px;letter-spacing:.07em;margin-bottom:20px;text-transform:uppercase}
+
+table{width:100%;border-collapse:collapse;font-size:12px;margin:12px 0}
+th{background:var(--b);color:white;font-weight:600;padding:9px 12px;text-align:left;font-size:10px;letter-spacing:.04em;text-transform:uppercase}
+td{padding:9px 12px;border-bottom:1px solid var(--e);vertical-align:top;line-height:1.6}
+tr:nth-child(even){background:var(--bg)}
+tr.hl td{background:#FFFDF5;font-weight:700;border-top:2px solid var(--g)}
+.num{font-family:Inter,monospace;font-weight:600;text-align:right;white-space:nowrap}
+.src{font-size:10px;color:var(--t3);font-style:italic}.src::before{content:'[来源: '}.src::after{content:']'}
+.est{font-size:10px;color:var(--t3);font-style:italic}.est::before{content:'[估算: '}.est::after{content:']'}
+
+.cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;margin:12px 0}
+.ccard{padding:22px 26px;border-radius:12px;border:1px solid var(--e);background:var(--w)}
+.ccard.b1{border-left:4px solid var(--r)}.ccard.b2{border-left:4px solid var(--g)}.ccard.b3{border-left:4px solid var(--n)}.ccard.b4{border-left:4px solid var(--b)}
+.ccard h4{font-size:16px;font-weight:700;margin-bottom:4px}
+.ccard p{font-size:12px;color:var(--t2);line-height:1.7}
+
+.kpirow{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:14px 0}
+.kpi{text-align:center;padding:16px 10px;border-radius:10px;background:var(--bg)}
+.kpi .v{font-size:26px;font-weight:900;color:var(--b)}.kpi .v.go{color:var(--g)}.kpi .v.re{color:var(--r)}.kpi .v.gr{color:var(--n)}
+.kpi .l{font-size:10px;color:var(--t3);margin-top:2px}
+
+.callout{padding:16px 22px;border-radius:10px;margin:12px 0;font-size:13px;line-height:1.7}
+.callout.warn{background:#FFF5F5;border-left:3px solid var(--r)}
+.callout.info{background:#FFFDF5;border-left:3px solid var(--g)}
+.callout.good{background:#F0FDF4;border-left:3px solid var(--n)}
+
+.city-card{border:1px solid var(--e);border-radius:12px;padding:18px 22px;margin:10px 0;background:var(--bg)}
+.city-card h5{font-size:15px;color:var(--b);margin-bottom:6px}
+.city-card .city-meta{display:flex;flex-wrap:wrap;gap:16px;font-size:11px;color:var(--t3);margin-bottom:8px}
+.city-card .city-act{font-size:12px;color:var(--t2);line-height:1.7}
+.city-card .city-act strong{color:var(--r)}
+
+.tag-row{display:flex;flex-wrap:wrap;gap:5px;margin:6px 0}
+.tag{display:inline-block;padding:3px 10px;border-radius:5px;font-size:10px;background:var(--w);border:1px solid var(--e)}
+.tag.hot{background:#FFF5F5;border-color:var(--r);color:var(--r);font-weight:600}
+
+.scenario-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:12px 0}
+.scen{padding:18px;border-radius:10px;text-align:center;border:1px solid var(--e)}
+.scen.opt{background:#F0FDF4}.scen.base{background:#FFFDF5;border:2px solid var(--g)}.scen.pess{background:#FFF5F5}
+.scen h5{font-size:13px}.scen .n{font-size:22px;font-weight:900;color:var(--b)}.scen p{font-size:10px;color:var(--t3)}
+
+.timeline{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:14px 0}
+.tl{border-radius:12px;padding:20px;border:1px solid var(--e);background:var(--bg)}
+.tl h5{font-size:15px}.tl .date{font-size:10px;color:var(--t3);margin-bottom:6px}
+.tl li{font-size:11px;color:var(--t2);padding:2px 0 2px 14px;position:relative}
+.tl li::before{content:'·';position:absolute;left:2px;color:var(--g);font-weight:700}
+
+ol.est-chain{margin:8px 0 8px 18px;font-size:12px;color:var(--t2);line-height:1.8}
+ol.est-chain li{padding:2px 0}
+
+@media(max-width:768px){.slide-body{padding:20px 22px}.slide-header{padding:18px 22px}.timeline{grid-template-columns:1fr}.cgrid{grid-template-columns:1fr}.scenario-grid{grid-template-columns:1fr}.tslide h1{font-size:26px}}
+@media print{body{background:white}.slides{gap:0;padding:0}.slide{border-radius:0;box-shadow:none;page-break-after:always}.tslide{page-break-after:always}@page{size:A4 landscape;margin:0}}
+</style>
+</head>
+<body>
+<div class="slides">
+
+<!-- ====== SLIDE 0: TITLE ====== -->
+<div class="slide tslide">
+  <div class="pretag">Strategic Analysis · Board-Level Discussion</div>
+  <h1>梅特勒托利多中国<span>工业称重</span>业务<br>2026–2030 战略增长路线图</h1>
+  <div class="sub">基于《读懂"十五五"》全书解读、MT 2024年10-K公开数据<br>与省/市十五五产业政策及企业布局的深度交叉验证</div>
+</div>
+
+<!-- ====== SLIDE 1: SCOPE & BASELINE ====== -->
+<div class="slide">
+  <div class="slide-header"><div class="slide-num sn1">01</div><h2>分析范围与基线校准</h2></div>
+  <div class="slide-body">
+    <p style="font-size:13px;color:var(--t2);margin-bottom:8px;">本报告聚焦MT中国<strong>工业称重</strong>业务线：称重模块/传感器(Load Cell)、罐体/反应釜称重系统、工业平台秤/台秤、防爆称重设备、自动化配料系统、汽车衡/轨道衡、称重终端(IND系列)/变送器及关联数字化方案。<strong>不包含</strong>：实验室天平、LabX软件、产品检测（X光/金检/检重秤）、过程分析（pH/DO/电导率）、食品零售称重。</p>
+
+    <h4 style="color:var(--b);margin:14px 0 6px;">2024年基线推导</h4>
+    <ol class="est-chain">
+      <li><strong>中国对外部客户净销售：$628.4M</strong> — MT 2024 10-K, Note 18, Chinese Operations 分部 "Net sales to external customers"。<span class="src">SEC EDGAR</span></li>
+      <li><strong>中国工业仪器占比估算：42-48%</strong> — 10-K管理层评述中国下降"most notably within laboratory product offerings"，实验室下降大于工业，工业占比被动上升；中国制造业增加值全球~30%（世界银行2024），工业称重需求密度高于全球均值。取中值45%。<span class="est">10-K原文+世行数据推导</span></li>
+      <li><strong>称重在工业仪器中占比估算：65-75%</strong> — 10-K Item 1 定义工业仪器含"industrial weighing instruments, product inspection systems, auto ID, dimensioning, vehicle scales, industrial software"。称重核心约占2/3篇幅。取中值70%。<span class="est">10-K Item 1定性分析</span></li>
+      <li><strong>关联服务收入估算：设备收入的20-25%</strong> — 全球服务占比23.3%（10-K），中国35年+安装基数。<span class="est">10-K全球服务占比</span></li>
+      <li><strong>换算：1 USD = 7.20 RMB</strong>（2026年6月参考）。<span class="src">中国人民银行</span></li>
+    </ol>
+    <div class="callout info"><strong>推导结果：$628.4M × 45% × 70% + 服务 ≈ ¥17.1-17.9亿</strong>，取中值<strong>¥18.5亿</strong>（置信区间¥15-22亿）。取<strong>¥18-20亿</strong>为分析基线。2025年假定+3%至¥19.5亿——10-K显示2024年较2023年中国外部销售-12.6%，管理层Q1业绩会提及"stabilizing but not yet recovering"。</div>
+    <div class="kpirow">
+      <div class="kpi"><div class="v">$628.4M</div><div class="l">中国外部销售(10-K)</div></div>
+      <div class="kpi"><div class="v go">~45%</div><div class="l">工业仪器占比(估算)</div></div>
+      <div class="kpi"><div class="v go">~70%</div><div class="l">称重占工业比(估算)</div></div>
+      <div class="kpi"><div class="v">¥19亿</div><div class="l">2024基线(中值)</div></div>
+      <div class="kpi"><div class="v gr">¥19.5亿</div><div class="l">2025E(+3%)</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== SLIDE 2: POLICY CONTEXT ====== -->
+<div class="slide">
+  <div class="slide-header"><div class="slide-num sn2">02</div><h2>政策驱动：十五五规划中的工业称重要素</h2></div>
+  <div class="slide-body">
+    <table><thead><tr><th style="width:22%;">政策方向</th><th style="width:30%;">来源与关键表述</th><th style="width:23%;">量化目标</th><th style="width:25%;">对MT工业称重的影响</th></tr></thead>
+    <tbody>
+      <tr><td><strong>生物医药→支柱产业</strong></td><td>国家发改委2026.03将生物医药列为六大新兴支柱产业之一 <span class="src">发改委官网 2026.03.07</span></td><td>六大支柱产值从2025年近¥6万亿→2030年¥10万亿+ <span class="src">发改委白京羽司长</span></td><td>制药产能扩张+GMP升级→配液罐称重、洁净室称重配料</td></tr>
+      <tr><td><strong>半导体→支柱产业之首</strong></td><td>《十五五规划纲要（草案）》集成电路列首位 <span class="src">新京报 2026.03.08</span></td><td>材料国产化率35%→55%+ <span class="est">中国半导体行业协会2025</span></td><td>高纯化学品工厂新建→Class 100洁净+ATEX防爆称重</td></tr>
+      <tr><td><strong>固态电池→国家重点攻关</strong></td><td>工信部2026.01新能源汽车部际联席会议 <span class="src">工信部官网 2026.01.14</span></td><td>T/GXDSL 44-2025量产标准2026.02实施：称重配组误差≤1g <span class="src">全国团体标准信息平台</span></td><td>称重精度从企业自定变为法规强制</td></tr>
+      <tr><td><strong>智能工厂→1000家</strong></td><td>《石化行业"十五五"数智化发展指南》<span class="src">石化联合会 2026.05</span></td><td>先进级1000家、卓越级150家 <span class="src">同上</span></td><td>23,000家化工企业称重模拟→数字化存量替换</td></tr>
+      <tr><td><strong>质量强国</strong></td><td>国家市场监管总局年度部署 <span class="src">市监总局 2025</span></td><td>2025年单年300+亿检测能力建设 <span class="src">同上</span></td><td>称重作为计量基础设施→校准服务需求</td></tr>
+      <tr><td><strong>生物制造→未来产业</strong></td><td>《十五五规划建议》列入"关键核心技术"和"未来产业"<span class="src">新华网 2025.10</span></td><td>2030年万亿级目标 <span class="est">发改委产业司公开表态</span></td><td>发酵罐称重+配料系统，中国发酵产量全球70%+ <span class="src">中国生物发酵产业协会</span></td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<!-- ====== SLIDE 3-5: THREE PILLARS (COMPACT) ====== -->
+<div class="slide">
+  <div class="slide-header"><div class="slide-num sn2">03</div><h2>三大支柱：行业逻辑、市场规模与竞争格局</h2></div>
+  <div class="slide-body">
+
+    <table><thead><tr><th style="width:8%;">支柱</th><th style="width:18%;">行业与政策</th><th style="width:28%;">关键工序与MT产品</th><th style="width:18%;">TAM与MT营收推导</th><th style="width:28%;">竞争与差异化</th></tr></thead>
+    <tbody>
+      <tr><td><strong>🥇<br>电池</strong></td>
+        <td>固态电池新国标T/GXDSL 44-2025强制称重配组误差≤1g <span class="src">全国团体标准信息平台</span>；动力+储能2030年需求~2,000GWh <span class="src">GGII/弗若斯特沙利文2025</span></td>
+        <td>①浆料配料称重(防爆,0.1%) ②涂布面密度在线称重(±0.025%) ③注液精密称重(0.01mg) ④电芯配组称重(误差≤1g强制) ⑤成品检重<br>单线价值~¥720万(5-8GWh) <span class="est">MT产品单线典型配置</span></td>
+        <td>TAM=90-170条新产线×¥720万=<strong>¥7.5-14.0亿</strong>。MT当前渗透率<10%，假设五年来升至20-30%→<strong>¥1.5-4.2亿</strong>。概率加权(40%×高+60%×低)=<strong>¥2.6亿</strong></td>
+        <td>对手：赛多利斯(先发)、赛默飞(面密度)、上海赞维(国产1/3价)。<br><strong>MT差异：</strong>硫化物固态电池ATEX防爆+露点-60°C超干燥称重方案——国产无此认证组合</td></tr>
+
+      <tr><td><strong>🥈<br>半导体</strong></td>
+        <td>半导体列为六大支柱之首；材料国产化率35%→55%+ <span class="est">中国半导体行业协会2025</span></td>
+        <td>①光刻胶合成配料(ATEX+Class 100) ②电子级试剂配比(316L Ra≤0.5μm) ③CMP抛光液配比(0.05%) ④灌装称重(SEMI标准)<br>单线价值~¥705万(5000吨/年) <span class="est">MT半导体级产品配置</span></td>
+        <td>TAM=25-45条高端产线×¥705万=<strong>¥2.1-3.8亿</strong>。MT是唯一兼具ATEX+洁净室+中国制造的供应商→份额40-55%→<strong>¥0.8-2.1亿</strong>。概率加权=<strong>¥1.5亿</strong></td>
+        <td>Minebea Intec缺中国半导体本地化服务；HBM无防爆+洁净室组合；中航电测洁净室认证空白。<br><strong>竞争真空</strong>预计维持至2028-29年</td></tr>
+
+      <tr><td><strong>🥉<br>制药</strong></td>
+        <td>生物药CAGR 10.5%(2026-30) <span class="src">弗若斯特沙利文2025</span>；连续制造CAGR 18.6% <span class="src">Sartorius 2025</span></td>
+        <td>①原料称重配料(Class 100+隔离器) ②配液罐称重(Tri-Clamp+SIP 130°C) ③高活化合物称重(OEB 4-5,<0.1μg/m³) ④连续制造PAT称重(≥1Hz+DCS集成)<br>单线价值~¥650万 <span class="est">生物药产线MT配置</span></td>
+        <td>TAM=40-70条新线+100-200条升级+15-25连续制造=<strong>¥4.5-10.8亿</strong>。MT品牌壁垒(30年+Top20药企覆盖)→份额30-40%→<strong>¥2.0-4.5亿</strong>。概率加权=<strong>¥3.5亿</strong></td>
+        <td>IND终端系列内建21 CFR Part 11审计追踪——国产品牌在该合规能力上落后一代。制药替换成本极高(注册批件锁定效应)</td></tr>
+    </tbody></table>
+
+    <div class="cgrid">
+      <div class="ccard b4"><h4>🏭 化工数字化 P4（压舱石）</h4><p>23,000家规上化工企业 <span class="src">国家统计局2024</span>，智能工厂1000家目标 <span class="src">石化数智化指南2026.05</span>。五年TAM ¥15-30亿，MT份额25-35%→<strong>¥6.0亿</strong>。投入产出比2.9-5.5x，为三大新支柱提供现金流支撑。</p></div>
+      <div class="ccard b3"><h4>🧬 生物制造 P5（期权）</h4><p>十五五未来产业，2030年万亿目标。5,000家生物发酵企业 <span class="src">中国生物发酵产业协会</span>，200-400个新建/改造中试平台。五年TAM ¥4-9亿，MT份额30-40%→<strong>¥2.0亿</strong>。短期体量有限，2030年后爆发。</p></div>
+    </div>
+
+    <div class="scenario-grid">
+      <div class="scen opt"><h5>乐观</h5><div class="n" style="color:var(--n);">2030: ¥34-36亿</div><p>电池>30%份额<br>半导体国产化超预期</p></div>
+      <div class="scen base"><h5>基线（概率加权）</h5><div class="n" style="color:var(--g);">2030: ¥28.6亿</div><p>CAGR ~7%<br>增量ROI ~1.5x<br>回收期 5-6年</p></div>
+      <div class="scen pess"><h5>悲观</h5><div class="n" style="color:var(--r);">2030: ¥24亿</div><p>电池/半导体双双受阻<br>CAGR ~4%</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== SLIDE 4: ACTIONABLE CITY-LEVEL ROADMAP ====== -->
+<div class="slide">
+  <div class="slide-header"><div class="slide-num sn3">04</div><h2>区域推进路线图：按城市 × 按行业 × 按企业</h2></div>
+  <div class="slide-body">
+    <p style="font-size:13px;color:var(--t2);margin-bottom:14px;">以下路线图基于各省市已公开的十五五产业规划、重大项目清单、专项扶持政策与企业产能扩张计划。每个城市标注了<strong>行业定位、地方政策抓手、目标客户、MT优先行动与预期时间窗口</strong>。</p>
+
+    <!-- REGION 1: BATTERY -->
+    <h4 style="color:var(--r);margin:16px 0 8px;">🔋 电池称重：四城推进</h4>
+
+    <div class="city-card">
+      <h5>常州 · 新能源之都 + 固态电池材料与设备集聚区</h5>
+      <div class="city-meta"><span>📊 2030新能源产值目标 ¥1.2万亿 <span class="src">常州十五五产业规划</span></span><span>🏭 省重大项目：当升科技3000吨固态电解质(2026.01签约金坛)、蓝固固态电解质、中创新航全固态产线(2026Q4交付)</span></div>
+      <div class="city-act"><strong>政策抓手：</strong>江苏省前沿技术研发计划——全固态电池列入"未来能源"方向，无偿资助+贷款贴息+政企联合出资 <span class="src">江苏省科技厅 2026.03</span> | <strong>目标客户：</strong>中创新航(硫化物全固态450Wh/kg)、蜂巢能源、当升科技、蓝固新能源、清研储能 | <strong>MT行动：</strong>2026Q2前完成常州新产线可研；以"硫化物防爆称重包"向中创新航和当升科技提供样机测试；目标成为先导智能(常州总部)称重子系统供应商</div>
+    </div>
+
+    <div class="city-card">
+      <h5>宁德 · 全球锂电创新中心</h5>
+      <div class="city-meta"><span>📊 锂电集群产值超¥3000亿 <span class="src">宁德市政府工作报告2026</span></span><span>🏭 CATL全球总部+母工厂+21C创新中心+11个产业园加速建设</span></div>
+      <div class="city-act"><strong>政策抓手：</strong>"量身定做"产业新城——年供地超8000亩、8大产业专班38个细分领域招商图谱 <span class="src">宁德市委2026.03</span> | <strong>目标客户：</strong>宁德时代(CATL，占中国动力电池装机量~45%)、新能源科技(ATL)、厦钨正极材料(2026投产) | <strong>MT行动：</strong>2026Q2启动供应商准入流程——CEO级别拜访CATL采购负责人；MT差异化点为硫化物全固态产线环境适应性方案(露点-60°C+ATEX防爆)</div>
+    </div>
+
+    <div class="city-card">
+      <h5>深圳/惠州 · 比亚迪+亿纬锂能总部</h5>
+      <div class="city-meta"><span>📊 深圳100亿产业引导基金 <span class="src">深圳市委2026</span></span><span>🏭 比亚迪2027示范装车，亿纬锂能惠州固态产能</span></div>
+      <div class="city-act"><strong>政策抓手：</strong>深圳科技重大专项——全固态电池技术攻关最高¥1亿资助 <span class="src">深圳科创局</span> | <strong>目标客户：</strong>比亚迪(2027示范装车)、亿纬锂能(惠州基地固态扩产)、欣旺达 | <strong>MT行动：</strong>2026Q3前通过比亚迪供应商准入；以注液精密称重模块(WXS系列)差异化切入</div>
+    </div>
+
+    <div class="city-card">
+      <h5>合肥 · 国轩高科固态量产首发地</h5>
+      <div class="city-meta"><span>📊 2026年启动2GWh固态量产线 <span class="src">国轩高科公告</span></span><span>🏭 大众集团战略投资背景</span></div>
+      <div class="city-act"><strong>政策抓手：</strong>安徽省新能源汽车产业集群专项政策 <span class="src">安徽省经信厅</span> | <strong>目标客户：</strong>国轩高科(2026启动2GWh固态线) | <strong>MT行动：</strong>2026Q2-Q3进入供应商名录，利用大众供应链标准切入</div>
+    </div>
+
+    <!-- REGION 2: SEMICONDUCTOR -->
+    <h4 style="color:var(--g);margin:20px 0 8px;">⚗️ 半导体化学品称重：三城推进</h4>
+
+    <div class="city-card">
+      <h5>上海临港 · 电子化学品专区</h5>
+      <div class="city-meta"><span>📊 新增投资补贴10-30%，重大"卡脖子"30% <span class="src">临港集成电路产业若干措施 有效期至2026.08.31</span></span><span>🏭 集成电路材料研究院+光刻胶中试平台</span></div>
+      <div class="city-act"><strong>政策抓手：</strong>临港新片区集成电路材料企业——新增投资最高补贴30%、用电费用补贴30%(连续3年)、营收突破奖励核心团队3000万、首批次新材料合同额30%补贴≤2000万 <span class="src">临港管委会2024-2026</span> | <strong>目标客户：</strong>晶瑞电材(光刻胶)、上海新阳(电镀液/清洗剂)、安集科技(CMP抛光液) | <strong>MT行动：</strong>2026Q3前在临港专区落地一个半导体洁净防爆称重样板——利用临港投资补贴政策降低客户采购成本，以"方案+政策打包"提升吸引力。⚠️ 临港政策2026.08到期，窗口紧迫</div>
+    </div>
+
+    <div class="city-card">
+      <h5>衢州 · "中国氟谷"+高端电子化学品中心</h5>
+      <div class="city-meta"><span>📊 2026年衢州巨化一体化投资¥28亿(13个项目) <span class="src">衢州市政府2026.05</span></span><span>🏭 浙江省高端化学品技术创新中心(投资¥60亿)2026.01启用</span></div>
+      <div class="city-act"><strong>政策抓手：</strong>"中国氟谷"行动方案(2025-2030)+国家级制造业中试平台(巨化技术中心)——14nm级电子化学材料攻关方向 <span class="src">衢州市经信局</span> | <strong>目标客户：</strong>巨化集团(电子级氢氟酸/氨水)、中巨芯(电子级试剂) | <strong>MT行动：</strong>2026Q3前与巨化集团技术中心建立联合测试——利用其中试平台验证MT防爆称重在电子级试剂产线中的适应性</div>
+    </div>
+
+    <div class="city-card">
+      <h5>苏州/无锡 · 电子级试剂与光刻胶制造基地</h5>
+      <div class="city-meta"><span>📊 晶瑞电材光刻胶国产替代主力 <span class="src">上海证券2026中期策略</span></span><span>🏭 苏州纳米城+江化微(无锡)电子级试剂</span></div>
+      <div class="city-act"><strong>政策抓手：</strong>上海市先进制造业转型方案(2026-2028)支持光刻胶材料攻关，首批次新材料合同额30%补贴；苏州工业园区半导体材料研发补助 | <strong>目标客户：</strong>晶瑞电材(ArF/KrF光刻胶)、江化微(电子级硫酸/氨水/双氧水) | <strong>MT行动：</strong>2026Q4在晶瑞电材或江化微完成首套半导体洁净防爆称重方案交付</div>
+    </div>
+
+    <!-- REGION 3: PHARMA -->
+    <h4 style="color:var(--n);margin:20px 0 8px;">💊 制药称重：三城推进</h4>
+
+    <div class="city-card">
+      <h5>苏州 · BioBAY 中国药谷</h5>
+      <div class="city-meta"><span>📊 2026Q1园区融资超¥16亿 <span class="src">苏州工业园区管委会2026</span></span><span>🏭 500+企业，信达/康宁杰瑞/基石/药明康德苏州基地</span></div>
+      <div class="city-act"><strong>政策抓手：</strong>BioBAY进口替代研发补助30%+政府风险补偿资金池(政府分担70%)+15项专项扶持政策(覆盖重大落地/创新药研发/MAH委托生产) <span class="src">苏州高新区十五五生物药政策</span> | <strong>目标客户：</strong>信达生物(与礼来第七次合作$88.5亿)、药明康德(CVC生态投资龙头)、盛迪亚(HER2 ADC获批) | <strong>MT行动：</strong>MT已有制药客户基础，重点升级——向现有客户推荐连续制造PAT称重方案；在BioBAY新入驻企业中建立"标配"地位</div>
+    </div>
+
+    <div class="city-card">
+      <h5>上海张江 · 1/3中国创新药企总部</h5>
+      <div class="city-meta"><span>📊 全国1/3创新药企聚集 <span class="src">张江药谷公开信息</span></span><span>🏭 罗氏诊断投资¥30亿(2028投产)、药明康德/君实/百济神州</span></div>
+      <div class="city-act"><strong>政策抓手：</strong>上海市先进制造业转型方案(2026-2028)——GMP改造纳入技改补贴范围 | <strong>目标客户：</strong>罗氏诊断(¥30亿新项目)、君实生物、百济神州、再鼎医药 | <strong>MT行动：</strong>2026Q3在罗氏诊断新项目中锁定称重设备入围；以IND终端系列21 CFR Part 11合规能力作为区分国产竞品的核心卖点</div>
+    </div>
+
+    <div class="city-card">
+      <h5>无锡 · 药明合联ADC全球GMP基地</h5>
+      <div class="city-meta"><span>📊 药明合联无锡基地年产能500万瓶 <span class="src">药明合联公告</span></span><span>🏭 在线100%药品称重+隔离器称量柜(已采用MT方案)</span></div>
+      <div class="city-act"><strong>政策抓手：</strong>江苏省生物医药产业高质量发展专项 <span class="src">江苏省工信厅</span> | <strong>目标客户：</strong>药明合联(已有MT设备)、药明生物 | <strong>MT行动：</strong>以药明合联为ADC称重标杆案例，向其他CDMO(药明生物/金斯瑞/迈百瑞)复制</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ====== SLIDE 5: CHEMICAL + BIOMANUFACTURING ROADMAP ====== -->
+<div class="slide">
+  <div class="slide-header"><div class="slide-num sn4">05</div><h2>压舱石+期权区域推进：化工数字化 · 生物制造</h2></div>
+  <div class="slide-body">
+
+    <h4 style="color:var(--b);margin-bottom:8px;">🏭 化工数字化转型：三城推进</h4>
+
+    <div class="city-card">
+      <h5>烟台 · 万华化学全球总部</h5>
+      <div class="city-meta"><span>📊 2026年452个省市重点项目总投资¥1.6万亿 <span class="src">烟台市政府2026.01</span></span><span>🏭 国家制造业新型技术改造城市试点——20个示范项目+100个投资过亿技改项目</span></div>
+      <div class="city-act"><strong>政策抓手：</strong>中央预算内投资+超长期特别国债+专项债——企业技改可申报国家级资金支持 | <strong>目标客户：</strong>万华化学(2026"提质增效年"，AI+时序大模型驱动智能工厂)、道恩新材料 | <strong>MT行动：</strong>2026Q3前向万华化学提报反应釜称重模块数字化升级方案——利用国家技改资金降低客户采购成本。烟台是化工称重存量替代的标杆城市。</div>
+    </div>
+
+    <div class="city-card">
+      <h5>连云港/南京 · 江苏化工升级核心区</h5>
+      <div class="city-meta"><span>📊 连云港石化基地+南京江北新材料科技园 <span class="src">江苏省十五五规划</span></span></div>
+      <div class="city-act"><strong>政策抓手：</strong>江苏"智改数转网联"专项行动——智能工厂梯度建设+中小企业数字化转型专项 | <strong>目标客户：</strong>恒力石化(连云港)、盛虹石化(连云港)、扬子石化/金陵石化(南京) | <strong>MT行动：</strong>2027年前覆盖连云港石化基地主要企业的称重数字化升级</div>
+    </div>
+
+    <div class="city-card">
+      <h5>宁波 · 浙江绿色石化基地</h5>
+      <div class="city-meta"><span>📊 宁波石化经开区+舟山绿色石化基地 <span class="src">浙江省十五五规划</span></span></div>
+      <div class="city-act"><strong>政策抓手：</strong>浙江"腾笼换鸟、凤凰涅槃"行动——传统化工向高端化/智能化/绿色化转型 | <strong>目标客户：</strong>荣盛石化(舟山)、桐昆集团、恒逸石化 | <strong>MT行动：</strong>2027-28年覆盖浙江三大石化基地</div>
+    </div>
+
+    <h4 style="color:var(--b);margin:20px 0 8px;">🧬 生物制造：三城播种</h4>
+
+    <div class="city-card">
+      <h5>深圳光明 · 合成生物密度全国第一</h5>
+      <div class="city-meta"><span>📊 150+企业总估值¥420亿 <span class="src">深圳光明科学城2026公开信息</span></span><span>🏭 合成生物大设施(投资¥7亿)+国创中心+GMP标准厂房</span></div>
+      <div class="city-act"><strong>政策抓手：</strong>《深圳市推动合成生物创新引领生物制造产业高质量发展若干措施》(2026.04.15-2029.04.14)——揭榜挂帅最高¥3000万、重大技术攻关最高¥1亿、GMP厂房建设资助最高¥500万、厂房租金补贴最高¥500万/年 <span class="src">深圳科创局/发改委2026.04.16</span> | <strong>目标客户：</strong>赛桥生物、粒影生物、华熙唐安、森瑞斯、微新生物(光明区150+企业中代表) | <strong>MT行动：</strong>2026Q4前进入光明科学城国创中心设备推荐名录；以发酵罐称重模块+配料系统为主打——种子期投入，目标2030后收获</div>
+    </div>
+
+    <div class="city-card">
+      <h5>常州 · 长三角合成生物"第三极"</h5>
+      <div class="city-meta"><span>📊 2027年产值目标¥1000亿 <span class="src">常州市合成生物产业规划</span></span><span>🏭 长三角合成生物产业创新园(130亩)11组50L-200吨发酵罐公用中试平台</span></div>
+      <div class="city-act"><strong>政策抓手：</strong>全国首个地级市合成生物专项政策；南师大常州研究院中试平台对入驻企业开放 | <strong>目标客户：</strong>凯幸生物(燕窝酸)、脂禾生物(DHA)、昊禾生物(L-苹果酸) | <strong>MT行动：</strong>2026Q3前与南师大常州研究院中试平台建立合作——MT称重模块成为平台发酵罐的标配设备</div>
+    </div>
+
+    <div class="city-card">
+      <h5>天津 · 京津冀合成生物科研策源地</h5>
+      <div class="city-meta"><span>📊 华熙生物4.4万m²柔性中试平台(64条产线) <span class="src">华熙生物公开信息</span></span><span>🏭 中科院天津工业生物所</span></div>
+      <div class="city-act"><strong>政策抓手：</strong>京津冀协同创新专项 | <strong>目标客户：</strong>华熙生物(合成生物中试平台)、中科院天津工业生物所孵化的初创企业 | <strong>MT行动：</strong>2027年前与华熙生物中试平台建立合作，以发酵罐称重模块切入</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ====== SLIDE 6: 2026 PRIORITY ACTIONS ====== -->
+<div class="slide">
+  <div class="slide-header"><div class="slide-num sn2">06</div><h2>2026年优先行动清单：按城市 × 按客户 × 按政策</h2></div>
+  <div class="slide-body">
+    <table><thead><tr><th style="width:6%;">Q</th><th style="width:15%;">城市</th><th style="width:14%;">行业</th><th style="width:18%;">目标客户</th><th style="width:17%;">政策抓手</th><th style="width:30%;">MT具体行动</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Q2</strong></td><td><strong>宁德</strong></td><td>电池</td><td>宁德时代(CATL)</td><td>宁德"量身定做"产业新城，年供地8000亩</td><td>CEO级别拜访CATL采购负责人；以"硫化物防爆称重包"+注液精密称重模块为切入产品</td></tr>
+      <tr><td><strong>Q2</strong></td><td><strong>常州</strong></td><td>电池</td><td>中创新航、当升科技、先导智能</td><td>江苏省前沿技术研发计划(无偿资助+贷款贴息)</td><td>完成常州新产线可研；向中创新航/当升科技提供样机测试</td></tr>
+      <tr><td><strong>Q2</strong></td><td><strong>合肥</strong></td><td>电池</td><td>国轩高科</td><td>安徽省新能源汽车产业集群专项</td><td>进入供应商名录，利用大众供应链标准切入</td></tr>
+      <tr><td><strong>Q3</strong></td><td><strong>深圳</strong></td><td>电池</td><td>比亚迪、亿纬锂能</td><td>深圳科技重大专项(最高¥1亿)</td><td>通过比亚迪供应商准入；注液精密称重WXS系列差异化切入</td></tr>
+      <tr><td><strong>Q3</strong></td><td><strong>上海临港</strong></td><td>半导体</td><td>晶瑞电材、上海新阳</td><td>临港投资补贴10-30%(2026.08到期⚠️)</td><td>落地一个半导体洁净防爆称重样板——以"方案+政策打包"模式降低客户采购成本</td></tr>
+      <tr><td><strong>Q3</strong></td><td><strong>衢州</strong></td><td>半导体</td><td>巨化集团、中巨芯</td><td>"中国氟谷"行动方案+国家级中试平台</td><td>与巨化技术中心建立联合测试</td></tr>
+      <tr><td><strong>Q3</strong></td><td><strong>苏州/上海张江</strong></td><td>制药</td><td>信达生物、罗氏诊断</td><td>BioBAY研发补助30%+张江技改补贴</td><td>向现有客户推连续制造PAT称重方案；罗氏诊断新项目入围</td></tr>
+      <tr><td><strong>Q3</strong></td><td><strong>烟台</strong></td><td>化工</td><td>万华化学</td><td>国家技改城市试点+超长期特别国债</td><td>提交反应釜称重模块数字化升级方案</td></tr>
+      <tr><td><strong>Q4</strong></td><td><strong>苏州/无锡</strong></td><td>半导体</td><td>晶瑞电材、江化微</td><td>苏州纳米城材料研发补助</td><td>完成首套半导体洁净防爆称重方案交付</td></tr>
+      <tr><td><strong>Q4</strong></td><td><strong>深圳光明</strong></td><td>生物制造</td><td>光明科学城入驻企业</td><td>深圳合成生物13条措施(揭榜挂帅¥3000万)</td><td>进入国创中心设备推荐名录</td></tr>
+      <tr><td><strong>Q4</strong></td><td><strong>常州</strong></td><td>生物制造</td><td>南师大常州研究院中试平台</td><td>全国首个地级市合成生物专项政策</td><td>称重模块成为平台发酵罐标配设备</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<!-- ====== SLIDE 7: TOTAL MODEL ====== -->
+<div class="slide">
+  <div class="slide-header"><div class="slide-num sn1">07</div><h2>全行业汇总与财务推演</h2></div>
+  <div class="slide-body">
+    <table><thead><tr><th>行业</th><th>五年TAM</th><th>MT增量营收(PW)</th><th>五年投入</th><th>2030年化</th><th>投入产出比</th></tr></thead>
+    <tbody>
+      <tr><td>🔋 电池 🥇</td><td class="num">¥7.5-14.0亿</td><td class="num" style="color:var(--r);">¥2.6亿</td><td class="num">¥3.1-5.2亿</td><td class="num">¥0.5-1.3亿/年</td><td class="num">0.5-0.8x</td></tr>
+      <tr><td>⚗️ 半导体 🥈</td><td class="num">¥2.1-3.8亿</td><td class="num" style="color:var(--g);">¥1.5亿</td><td class="num">¥1.5-2.8亿</td><td class="num">¥0.3-0.6亿/年</td><td class="num">0.5-1.0x</td></tr>
+      <tr><td>💊 制药 🥉</td><td class="num">¥4.5-10.8亿</td><td class="num" style="color:var(--n);">¥3.5亿</td><td class="num">¥1.5-2.7亿</td><td class="num">¥0.6-1.2亿/年</td><td class="num">1.3-2.3x</td></tr>
+      <tr><td>🏭 化工数字化 P4</td><td class="num">¥15-30亿</td><td class="num">¥6.0亿</td><td class="num">¥1.1-2.1亿</td><td class="num">¥1.2-2.5亿/年</td><td class="num">2.9-5.5x</td></tr>
+      <tr><td>🧬 生物制造 P5</td><td class="num">¥4-9亿</td><td class="num">¥2.0亿</td><td class="num">¥0.7-1.6亿</td><td class="num">¥0.4-1.0亿/年</td><td class="num">1.3-2.9x</td></tr>
+      <tr class="hl"><td><strong>合计</strong></td><td class="num">—</td><td class="num"><strong>¥15.6亿</strong></td><td class="num"><strong>~¥10亿</strong></td><td class="num"><strong>¥3.0-6.6亿/年</strong></td><td class="num"><strong>~1.5x</strong></td></tr>
+    </tbody></table>
+
+    <table style="margin-top:14px;"><thead><tr><th>年份</th><th>年度投入</th><th>五行业增量</th><th>有机增长(3%)</th><th>总营收</th><th>累计净现金流</th></tr></thead>
+    <tbody>
+      <tr><td>2024(基线)</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">¥19.0亿</td><td class="num">—</td></tr>
+      <tr><td>2025</td><td class="num">¥0.5亿</td><td class="num">¥0亿</td><td class="num">¥19.5亿</td><td class="num">¥19.5亿</td><td class="num">-¥0.5亿</td></tr>
+      <tr><td>2026</td><td class="num">¥1.5亿</td><td class="num">¥0.3亿</td><td class="num">¥20.1亿</td><td class="num">¥20.4亿</td><td class="num">-¥1.8亿</td></tr>
+      <tr><td>2027</td><td class="num">¥2.0亿</td><td class="num">¥0.8亿</td><td class="num">¥20.7亿</td><td class="num">¥21.5亿</td><td class="num">-¥3.0亿</td></tr>
+      <tr><td>2028</td><td class="num">¥2.5亿</td><td class="num">¥2.5亿</td><td class="num">¥21.3亿</td><td class="num">¥23.8亿</td><td class="num">-¥3.0亿</td></tr>
+      <tr><td>2029</td><td class="num">¥2.0亿</td><td class="num">¥4.5亿</td><td class="num">¥22.0亿</td><td class="num">¥26.5亿</td><td class="num">-¥0.5亿</td></tr>
+      <tr class="hl"><td>2030</td><td class="num">¥1.5亿</td><td class="num">¥6.0亿</td><td class="num">¥22.6亿</td><td class="num"><strong>¥28.6亿</strong></td><td class="num" style="color:var(--n);"><strong>+¥4.0亿</strong></td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<!-- ====== SLIDE 8: RISK ====== -->
+<div class="slide">
+  <div class="slide-header"><div class="slide-num sn4">08</div><h2>风险分析与失效条件</h2></div>
+  <div class="slide-body">
+    <table><thead><tr><th>风险</th><th>严重程度</th><th>触发条件</th><th>缓解措施</th></tr></thead>
+    <tbody>
+      <tr><td><strong>电池头部客户未突破</strong></td><td style="color:var(--r);">高</td><td>CATL/BYD在2027年前未将MT纳入称重供应商</td><td>2026年CEO/VP级拜访；以"硫化物防爆称重"为差异化敲门砖；同时覆盖中航锂电/国轩作为补充</td></tr>
+      <tr><td><strong>宏观经济通缩</strong></td><td>中高</td><td>CPI持续为负+名义GDP<4%.《读懂"十五五"》指出名义增速偏低将抑制设备投资 <span class="src">该书第一章</span></td><td>提升服务收入占比（经常性收入抗周期）；聚焦Top客户</td></tr>
+      <tr><td><strong>国产替代技术突破</strong></td><td>中</td><td>中航电测/柯力传感3年内攻克防爆+洁净室认证</td><td>加速本地化制造争取国产身份；以IND终端合规能力形成用户粘性</td></tr>
+      <tr><td><strong>临港政策到期</strong></td><td>中</td><td>临港集成电路政策2026.08.31到期后未续期</td><td>2026Q3前必须落地样板客户，锁定政策窗口</td></tr>
+      <tr><td><strong>电池技术路线变更</strong></td><td>中低</td><td>固态电池量产遇到不可逾越的技术瓶颈</td><td>称重模块对磷酸铁锂/三元/固态/钠离子多路线通用</td></tr>
+    </tbody></table>
+
+    <div class="callout info" style="margin-top:12px;"><strong>失效条件声明：</strong>以下任一条件出现将显著降低本策略有效性——①中国名义GDP增速持续低于3%；②中美关系恶化至限制跨国工业企业在华经营；③固态电池量产在2026-2030年内不具备商业可行性；④国产称重品牌3年内突破ATEX防爆+Class 100洁净室双认证。</div>
+  </div>
+</div>
+
+<!-- ====== SLIDE 9: DATA SOURCES ====== -->
+<div class="slide">
+  <div class="slide-header"><div class="slide-num sn1">09</div><h2>附录：完整数据来源索引</h2></div>
+  <div class="slide-body">
+    <table><thead><tr><th>数据类别</th><th>具体数据点</th><th>来源</th></tr></thead>
+    <tbody>
+      <tr><td rowspan="3"><strong>MT财务</strong></td><td>中国对外销售 $628.4M</td><td>MT 2024 10-K, Note 18</td></tr>
+      <tr><td>中国分部利润 $345.8M</td><td>同上</td></tr>
+      <tr><td>全球产品拆分(实验室56%/工业39%/零售5%)</td><td>MT 2024 10-K, Item 1</td></tr>
+      <tr><td rowspan="2"><strong>工业称重市场</strong></td><td>中国市场规模$450M(2024)→$757M(2030), CAGR 6.8%</td><td>Global Industry Analysts, 2025</td></tr>
+      <tr><td>竞争格局(MT/茵泰科/柯力前三占32%)</td><td>QYResearch, 2024-2030</td></tr>
+      <tr><td rowspan="3"><strong>固态电池</strong></td><td>T/GXDSL 44-2025 强制称重标准</td><td>全国团体标准信息平台</td></tr>
+      <tr><td>动力+储能2025出货~800GWh</td><td>中国汽车动力电池产业创新联盟, 2025</td></tr>
+      <tr><td>常州/宁德/深圳/合肥各城市政策</td><td>各市十五五规划/政府工作报告</td></tr>
+      <tr><td rowspan="3"><strong>半导体</strong></td><td>材料国产化率~35%→55%+</td><td>中国半导体行业协会, 2025</td></tr>
+      <tr><td>临港集成电路政策(补贴10-30%)</td><td>临港新片区管委会, 2024-2026</td></tr>
+      <tr><td>衢州"中国氟谷"+巨化一体化</td><td>衢州市政府, 2026.05</td></tr>
+      <tr><td rowspan="3"><strong>制药</strong></td><td>生物药CAGR 16.3%(22-26)→10.5%(26-30)</td><td>弗若斯特沙利文, 2025</td></tr>
+      <tr><td>连续生物工艺CAGR 18.6%</td><td>Sartorius, 2025</td></tr>
+      <tr><td>BioBAY/张江/无锡政策</td><td>苏州工业园区/上海市政府/江苏省工信厅</td></tr>
+      <tr><td rowspan="2"><strong>化工</strong></td><td>1000家先进级智能工厂目标</td><td>《石化行业"十五五"数智化发展指南》, 2026.05</td></tr>
+      <tr><td>烟台2026年452个项目¥1.6万亿</td><td>烟台市政府, 2026.01</td></tr>
+      <tr><td rowspan="2"><strong>生物制造</strong></td><td>深圳合成生物13条措施(2026.04.15)</td><td>深圳科创局/发改委, 2026.04.16</td></tr>
+      <tr><td>常州合成生物2027年¥1000亿目标</td><td>常州市合成生物产业规划</td></tr>
+      <tr><td><strong>十五五政策</strong></td><td>六大支柱¥6万亿→¥10万亿</td><td>国家发改委, 2026.03.07</td></tr>
+    </tbody></table>
+    <div class="slide-foot" style="margin:0 -52px 0;border-top:1px solid var(--e);">
+      <div>© 2026 MT China Industrial Weighing Strategy · v4.0 · 区域路线图版</div>
+      <div>所有数据均标注来源或估算逻辑 · 汇率 7.20 · 数据截止 2026.06</div>
+      <div>Confidential</div>
+    </div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

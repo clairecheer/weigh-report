@@ -1,24 +1,21 @@
-# Python
-__pycache__/
-*.py[cod]
-*.pyo
-.Python
+# MT China Industrial Weighing · 十五五 Strategy
+# Files to exclude
 
-# Virtual environments
-venv/
-.venv/
-env/
+# Heavy source files
+读懂*.pdf
+book*.pdf
+book*.txt
+book_extracted.txt
 
-# IDE
-.vscode/
-.idea/
+# Working drafts (keep deliverables)
+MT-十五五-工业业务增长机会/drafts/
+MT-十五五-工业业务增长机会/datas/
+MT-十五五-工业业务增长机会/eval/
 
-# OS
+# System files
+.claude/
 .DS_Store
-Thumbs.db
+Strategy-Analyst/
 
-# Intermediate output
-data_output.txt
-
-# Jupyter
-.ipynb_checkpoints/
+# Version archives (optional to include)
+versions/
